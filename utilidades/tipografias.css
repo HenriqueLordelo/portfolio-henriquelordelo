@@ -1,66 +1,48 @@
-/*POPPINS - SANS-SERIF*/
-.font-p1 {
-  font: 600 4.5rem/5rem "Poppins", sans-serif;
+/* FONTES HOSPEDADAS NO PRÓPRIO SITE (subconjunto latino, cobre o português)
+   Evita a folha de estilo bloqueante de outra origem e o envio do IP do visitante ao Google.
+   Poppins: SIL Open Font License · Roboto: SIL Open Font License */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fontes/poppins-400.woff2") format("woff2");
 }
-.font-p2 {
-  font: 600 4.25rem/4.75rem "Poppins", sans-serif;
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fontes/poppins-500.woff2") format("woff2");
 }
-.font-p3 {
-  font: 500 3.75rem/4.25rem "Poppins", sans-serif;
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fontes/poppins-600.woff2") format("woff2");
 }
-.font-p4 {
-  font: 500 2.75rem/3.25rem "Poppins", sans-serif;
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../fontes/roboto-variavel.woff2") format("woff2");
 }
-.font-p5 {
-  font: 400 2.125rem/2.625rem "Poppins", sans-serif;
-}
-.font-p6 {
-  font: 400 1.5rem/2rem "Poppins", sans-serif;
-}
-.font-p7 {
-  font: 500 1.125rem/1.5rem "Poppins", sans-serif;
-}
-.font-p8 {
-  font: 600 1.125rem/1.5rem "Poppins", sans-serif;
-}
-.font-p9 {
-  font: 400 1.125rem/1.5rem "Poppins", sans-serif;
-}
-.font-p10 {
-  font: 400 1.375rem/1.875rem "Poppins", sans-serif;
-}
-/*ROBOTO - SANS-SERIF*/
-.font-r1 {
-  font: 400 1.125rem/1.5rem "Roboto", sans-serif;
-}
-.font-r2 {
-  font: 400 1.125rem/1.5rem "Roboto", sans-serif;
-  letter-spacing: 0.1125rem;
-}
-.font-r3 {
-  font: 400 0.875rem/1.25rem "Roboto", sans-serif;
-}
-.font-r4 {
-  font: 400 1.5rem/2rem "Roboto", sans-serif;
-}
-.font-r5 {
-  font: 400 1.375rem/1.875rem "Roboto", sans-serif;
-}
-.font-r6 {
-  font: 400 1.25rem/1.75rem "Roboto", sans-serif;
-}
-.font-r7 {
-  font: 400 0.875rem/1.375rem "Roboto", sans-serif;
-}
-.font-r8 {
-  font: 400 1rem/1.5rem "Roboto", sans-serif;
-}
-.font-r9 {
-  font: 400 2.125rem/2.625rem "Roboto", sans-serif;
-}
-.font-r10 {
-  font: 500 2.125rem/2.625rem "Roboto", sans-serif;
-}
-.font-r11 {
-  font: 700 2.125rem/2.625rem "Roboto", sans-serif;
+
+/* ESCALA TIPOGRÁFICA FLUIDA
+   Poppins para títulos, Roboto para textos (as mesmas da seção "Tipografias utilizadas"). */
+:root {
+  --fonte-titulo: "Poppins", system-ui, sans-serif;
+  --fonte-texto: "Roboto", system-ui, sans-serif;
+
+  --fs-display: clamp(3.5rem, 0.8rem + 15vw, 13.5rem);
+  --fs-secao: clamp(2.75rem, 1.4rem + 6vw, 7rem);
+  --fs-titulo-medio: clamp(2.25rem, 1.5rem + 3vw, 4.25rem);
+  --fs-titulo-projeto: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+  --fs-papel: clamp(1.25rem, 0.9rem + 1.6vw, 2.25rem);
+  --fs-lide: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --fs-corpo: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-pequeno: 0.875rem;
+  --fs-rotulo: 0.75rem;
 }

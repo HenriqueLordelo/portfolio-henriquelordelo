@@ -1,3 +1,4 @@
+/* PALETA ORIGINAL (documentada na seção "Portfólio" do site) */
 :root {
   --cor-c13: #000000;
   --cor-c12: #141414;
@@ -17,58 +18,21 @@
   --cor-l1: #f58000;
   --cor-l2: #f56b00;
   --cor-ve: #0f8208;
-}
-.cor-c0 {
-  color: var(--cor-c0);
-}
-.cor-c1 {
-  color: var(--cor-c1);
-}
-.cor-c2 {
-  color: var(--cor-c2);
-}
-.cor-c3 {
-  color: var(--cor-c3);
-}
-.cor-c4 {
-  color: var(--cor-c4);
-}
-.cor-c5 {
-  color: var(--cor-c5);
-}
-.cor-c6 {
-  color: var(--cor-c6);
-}
-.cor-c7 {
-  color: var(--cor-c7);
-}
-.cor-c8 {
-  color: var(--cor-c8);
-}
-.cor-c9 {
-  color: var(--cor-c9);
-}
-.cor-c10 {
-  color: var(--cor-c10);
-}
-.cor-c11 {
-  color: var(--cor-c11);
-}
-.cor-c12 {
-  color: var(--cor-c12);
-}
-.cor-c13 {
-  color: var(--cor-c13);
-}
-.cor-v1 {
-  color: var(--cor-v1);
-}
-.cor-l1 {
-  color: var(--cor-l1);
-}
-.cor-l2 {
-  color: var(--cor-l2);
-}
-.cor-ve {
-  color: var(--cor-ve);
+
+  --gradiente-v2: linear-gradient(180deg, #db0000 0%, #b40909 100%);
+  --gradiente-v3: linear-gradient(180deg, #db0000 0%, #a81111 100%);
+
+  /* PAPÉIS SEMÂNTICOS */
+  --fundo: #0a0a0a;
+  --fundo-elevado: var(--cor-c11);
+  --superficie: var(--cor-c12);
+  --linha: #222222;
+  --linha-forte: var(--cor-c10);
+  --texto: var(--cor-c2);
+  --texto-forte: var(--cor-c0);
+  --texto-suave: var(--cor-c6); /* 7.1:1 sobre --fundo */
+  --texto-apagado: var(--cor-c7); /* apenas textos grandes ou decorativos */
+  --destaque: #db0000; /* acento visual; não usar em texto pequeno */
+  --destaque-texto: var(--cor-l1); /* laranja: 7.4:1 sobre --fundo, seguro para texto */
+  --foco: var(--cor-l1);
 }

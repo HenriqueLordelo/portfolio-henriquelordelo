@@ -1,213 +1,408 @@
-.introducao-bg {
-  background-color: var(--cor-c13);
+/* ---------- HERO ---------- */
+.hero {
   position: relative;
-  padding: 100px;
+  isolation: isolate;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: calc(var(--header-altura) + clamp(32px, 8vh, 96px));
+  padding-bottom: var(--e-8);
+  overflow: hidden;
 }
-.criatividade {
+
+.hero-fundo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* grade de linhas finas, esmaecida nas bordas */
+.hero-grade {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 96px 96px;
+  background-position: center top;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 100%);
+}
+
+/* brilho vermelho que acompanha o cursor (posição definida em motion.js) */
+.hero-brilho {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
+  width: 720px;
+  height: 720px;
+  margin: -360px 0 0 -360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(219 0 0 / 0.32) 0%, rgb(180 9 9 / 0.12) 40%, transparent 70%);
+  transform: translate3d(var(--brilho-x, 70vw), var(--brilho-y, 35vh), 0);
+  will-change: transform;
 }
-.inovacao {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-.introducao {
-  position: relative;
+
+.hero-interno {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 40px;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-areas:
+    "sobre sobre"
+    "titulo titulo"
+    "rodape rodape"
+    "redes rolar";
+  row-gap: var(--e-8);
 }
-.introducao-conteudo h2 {
+
+.hero-sobretitulo {
+  grid-area: sobre;
   display: flex;
   align-items: center;
+  gap: var(--e-3);
+  font: 400 var(--fs-pequeno) / 1 var(--fonte-titulo);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
 }
-.introducao-conteudo h2::before {
-  content: "";
-  display: inline-block;
-  height: 17px;
-  width: 17px;
-  border-radius: 50%;
-  margin-right: 0.625rem;
-  background-color: var(--cor-ve);
-  animation: pulse 2s infinite;
+
+.hero-ano {
+  margin-left: var(--e-2);
+  color: var(--texto-apagado);
 }
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-.pequenapausa {
-  background: linear-gradient(180deg, #db0000 0%, #b40909 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.henriquelordelo {
-  margin-top: 50px;
-  padding-bottom: 20px;
-}
-.desenvolvedorfrontend {
-  padding-bottom: 20px;
-}
-.pequenaintroducao {
-  padding-bottom: 20px;
-}
-.introducao-imagem-celular {
-  width: 75%;
-}
-.introducao-imagens-e-redes-sociais {
-  display: flex;
-  align-items: center;
-}
-.introducao-imagens-e-redes-sociais ul {
-  position: absolute;
-  right: 0rem;
-  top: 0rem;
-  bottom: 0rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-}
-.introducao-imagens-e-redes-sociais li {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(black, black) padding-box,
-    linear-gradient(180deg, #db0000 0%, #b40909 100%) border-box;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* o ponto verde pulsante da versão original, agora como "sinal" com onda */
+.ponto-status {
   position: relative;
-  z-index: 1;
-}
-.introducao-imagens-e-redes-sociais li:hover::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 2px solid transparent;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  animation: iconrotate 2s linear infinite;
-  z-index: -1;
+  background: var(--cor-ve);
 }
-@keyframes iconrotate {
+
+@media (prefers-reduced-motion: no-preference) {
+  .ponto-status::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--cor-ve);
+    animation: ponto-onda 2.4s var(--ease-out-quart) infinite;
+  }
+}
+
+@keyframes ponto-onda {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+.hero-titulo {
+  grid-area: titulo;
+  align-self: center;
+  font-weight: 600;
+}
+
+.hero-nome {
+  display: block;
+  font-size: var(--fs-display);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  color: var(--texto-forte);
+}
+
+.hero-linha {
+  display: block;
+  overflow: hidden;
+  /* espaço para o acento de "Lordêlo" e para descendentes */
+  padding: 0.12em 0.05em 0.06em;
+  margin: -0.12em -0.05em -0.06em;
+}
+
+.hero-linha-interna {
+  display: inline-block;
+}
+
+/* composição assimétrica: a segunda linha avança para a direita */
+.hero-linha:nth-child(2) {
+  padding-left: clamp(0.05em, 14vw, 2.2em);
+}
+
+.hero-papel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.32em;
+  max-width: 22ch;
+  margin-top: clamp(var(--e-6), 3vw, var(--e-12));
+  margin-left: clamp(0px, 14vw, calc(var(--fs-display) * 2.2));
+  font: 400 var(--fs-papel) / 1.2 var(--fonte-titulo);
+  letter-spacing: -0.01em;
+  color: var(--cor-c4);
+}
+
+.hero-palavra {
+  display: inline-block;
+}
+
+.hero-e {
+  background: var(--gradiente-v2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.hero-rodape {
+  grid-area: rodape;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--e-6) var(--e-12);
+  padding-top: var(--e-8);
+  position: relative;
+}
+
+.hero-regua {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--destaque) 0%, var(--linha-forte) 35%, var(--linha) 100%);
+  transform-origin: 0 50%;
+}
+
+.hero-texto {
+  max-width: 46ch;
+  color: var(--texto-suave);
+}
+
+.hero-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+}
+
+.hero-redes {
+  grid-area: redes;
+  display: flex;
+  gap: var(--e-2);
+}
+
+.hero-redes a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--linha-forte);
+  border-radius: 50%;
+  transition: border-color 0.3s var(--ease-out-quart), background-color 0.3s var(--ease-out-quart),
+    transform 0.4s var(--ease-out-expo);
+}
+
+.hero-redes img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.hero-redes a:hover,
+.hero-redes a:focus-visible {
+  border-color: var(--destaque);
+  background-color: rgb(219 0 0 / 0.12);
+  transform: translateY(-3px);
+}
+
+.hero-redes a:hover img,
+.hero-redes a:focus-visible img {
+  opacity: 1;
+}
+
+.hero-rolar {
+  grid-area: rolar;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-3);
+  min-height: 44px;
+  font: 400 var(--fs-rotulo) / 1 var(--fonte-titulo);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.hero-rolar-linha {
+  position: relative;
+  width: 48px;
+  height: 1px;
+  overflow: hidden;
+  background: var(--linha-forte);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rolar-linha::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--texto-forte);
+    animation: rolar-indicador 2.6s var(--ease-in-out) 2.4s infinite;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes rolar-indicador {
   0% {
-    transform: rotate(0deg);
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    border-right-color: var(--cor-v2);
-    border-left-color: var(--cor-v2);
+    transform: translateX(-100%);
   }
+  50%,
   100% {
-    transform: rotate(360deg);
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    border-right-color: var(--cor-v2);
-    border-left-color: var(---cor-v2);
+    transform: translateX(100%);
   }
 }
-/*RESPONSIVO PARA DESKTOP*/
-@media (max-width: 1600px) {
-  .criatividade {
-    margin-left: 15px;
-  }
-  .inovacao {
-    margin-right: 15px;
-  }
-}
-/*RESPONSIVO PARA LAPTOP*/
-@media (max-width: 1300px) {
-  .introducao-imagem-celular {
-    max-width: 90%;
+
+/* ao sair da tela, o nome sobe e esmaece um pouco: profundidade sem JS */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-nome {
+      animation: hero-saida linear both;
+      animation-timeline: view();
+      animation-range: exit -10% exit 90%;
+    }
   }
 }
-@media (max-width: 1150px) {
-  .introducao-imagem-celular {
-    max-width: 80%;
+
+@keyframes hero-saida {
+  to {
+    transform: translateY(-18%);
+    opacity: 0.15;
   }
 }
-@media (max-width: 1120px) {
-  .introducao-imagem-celular {
-    max-width: 70%;
-  }
-}
-/*RESPONSIVO PARA TABLET*/
-@media (max-width: 1024px) {
-  .introducao-bg {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .introducao-imagem-celular {
-    display: none;
-  }
-  .criatividade {
-    display: none;
-  }
-  .inovacao {
-    display: none;
-  }
-  .introducao {
+
+@media (max-width: 900px) {
+  .hero-rodape {
     grid-template-columns: 1fr;
   }
-  .desenvolvedorfrontend {
-    max-width: 14ch;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-top: calc(var(--header-altura) + var(--e-8));
   }
-  .pequenaintroducao {
-    max-width: 53ch;
+
+  .hero-interno {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sobre"
+      "titulo"
+      "rodape"
+      "redes";
+    row-gap: var(--e-6);
   }
-  .introducao-redes-sociais {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+  .hero-linha:nth-child(2) {
+    padding-left: 0.05em;
+  }
+
+  .hero-papel {
+    margin-left: 0;
+  }
+
+  .hero-rodape {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-acoes .botao {
+    flex: 1 1 200px;
+  }
+
+  .hero-rolar {
+    display: none;
+  }
+
+  .hero-brilho {
+    width: 420px;
+    height: 420px;
+    margin: -210px 0 0 -210px;
   }
 }
-@media (max-width: 850px) {
-  .henriquelordelo {
-    font: 400 30px/38px "Poppins", sans-serif;
+
+/* ---------- FAIXA DE PALAVRAS ---------- */
+.faixa {
+  overflow: hidden;
+  padding-block: var(--e-6);
+  border-block: 1px solid var(--linha);
+  background: var(--fundo-elevado);
+}
+
+.faixa-trilho {
+  display: flex;
+  width: max-content;
+}
+
+.faixa-lista {
+  display: flex;
+  flex: none;
+}
+
+.faixa-lista li {
+  display: flex;
+  align-items: center;
+  font: 500 clamp(2rem, 1.2rem + 3.5vw, 4.5rem) / 1 var(--fonte-titulo);
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--cor-c7);
+}
+
+.faixa-lista li:nth-child(even) {
+  color: var(--cor-c7); /* 3.7:1 — suficiente para texto grande */
+  -webkit-text-stroke: 0;
+}
+
+.faixa-lista li::after {
+  content: "";
+  width: 0.22em;
+  height: 0.22em;
+  margin-inline: 0.5em;
+  border-radius: 50%;
+  background: var(--destaque);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .faixa-trilho {
+    animation: faixa-rolagem 48s linear infinite;
   }
-  .desenvolvedorfrontend {
-    font: 500 60px/68px "Poppins", sans-serif;
-  }
-  .pequenaintroducao {
-    max-width: 45ch;
+
+  /* sem animação enquanto estiver fora da tela (motion.js marca .is-visivel) */
+  .faixa:not(.is-visivel) .faixa-trilho {
+    animation-play-state: paused;
   }
 }
-/*RESPONSIVO PARA CELULAR*/
-@media (max-width: 767px) {
-  .henriquelordelo {
-    margin-top: 0px;
-    font: 400 24px/32px "Poppins", sans-serif;
+
+@keyframes faixa-rolagem {
+  to {
+    transform: translateX(-50%);
   }
-  .introducao-conteudo h2::before {
-    width: 14px;
-    height: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faixa-trilho {
+    flex-wrap: wrap;
+    width: auto;
   }
-  .desenvolvedorfrontend {
-    font: 500 44px/52px "Poppins", sans-serif;
+
+  .faixa-lista:last-child {
+    display: none;
   }
-  .introducao-imagens-e-redes-sociais {
-    align-items: normal;
-  }
-  .introducao-imagens-e-redes-sociais ul {
-    position: static;
-    flex-direction: row;
-    padding-top: 40px;
+
+  .faixa-lista {
+    flex-wrap: wrap;
+    padding-inline: var(--gutter);
   }
 }

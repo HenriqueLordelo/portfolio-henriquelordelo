@@ -1,213 +1,178 @@
-.contato-bg {
-  background: url("/img/contato/Background\ \(1\).webp");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  padding: 100px;
-}
-.acessivel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-.contato-subtitulo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-bottom: 30px;
-}
-.contato-subtitulo::before {
-  content: "";
-  display: inline-block;
-  width: 35px;
-  height: 5px;
-  border-radius: 10px;
-  margin-right: 10px;
-  background: linear-gradient(180deg, #db0000 0%, #b40909 100%);
-}
-.contato-titulo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  padding-bottom: 100px;
-}
-.contato-titulo::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 103.0192px;
-  height: 79.0608px;
-  background: url(/img/decoracao/Decorador.svg) no-repeat center;
-  top: -10px;
-  left: 25%;
-  z-index: -1;
-}
 .contato {
+  isolation: isolate;
+  overflow: hidden;
+  border-top: 1px solid var(--linha);
+}
+
+/* textura de malha vermelha original, agora como atmosfera da seção */
+.contato-fundo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, var(--fundo) 0%, rgb(10 10 10 / 0.4) 40%, rgb(10 10 10 / 0.85) 100%),
+    url("../img/contato/Background%20do%20Contato.webp") center bottom / cover no-repeat;
+}
+
+.contato-grade {
   display: grid;
-  justify-content: center;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(var(--e-12), 6vw, var(--e-24));
+  align-items: start;
 }
-.contato-secao {
-  max-width: 840px;
-  height: auto;
-  background: url("/img/contato/Background\ do\ Contato.webp");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 10px;
+
+.contato-cartao {
+  padding: clamp(var(--e-6), 4vw, var(--e-16));
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: calc(var(--raio) + 4px);
+  background: rgb(14 14 14 / 0.72);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
-.contato-secao-titulo {
-  display: flex;
-  justify-content: center;
-  font: 600 44px/52px "Poppins", sans-serif;
-  padding-top: 80px;
-  padding-bottom: 20px;
+
+.contato-cartao-titulo {
+  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  letter-spacing: -0.025em;
 }
-.contato-secao-descricao {
-  align-content: center;
-  text-align: center;
-  padding-bottom: 20px;
+
+.contato-cartao-texto {
+  margin-top: var(--e-3);
+  color: var(--texto-suave);
 }
+
 .contato-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  padding-bottom: 80px;
+  display: grid;
+  gap: var(--e-3);
+  margin-top: var(--e-8);
 }
-form textarea {
-  max-width: 370px;
-  max-height: 56px;
-  background-color: var(--cor-c2);
-  color: var(--cor-c12);
-  font-size: 18px;
+
+.contato-rotulo {
+  font: 500 var(--fs-rotulo) / 1 var(--fonte-titulo);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.contato-form textarea {
+  width: 100%;
+  min-height: 132px;
+  padding: var(--e-4) var(--e-5);
+  resize: vertical;
+  border: 1px solid var(--linha-forte);
   border-radius: 10px;
-  box-sizing: border-box;
-  padding-left: 20px;
-  padding-top: 16px;
-  line-height: auto;
+  background: rgb(0 0 0 / 0.5);
+  color: var(--texto-forte);
+  line-height: 1.5;
+  transition: border-color 0.3s var(--ease-out-quart), box-shadow 0.3s var(--ease-out-quart);
 }
-form textarea::-webkit-scrollbar {
-  width: 6px;
-  background-color: transparent;
+
+.contato-form textarea::placeholder {
+  color: var(--cor-c7);
 }
-form textarea::-webkit-scrollbar-thumb{
-  background: var(--cor-v1);
+
+.contato-form textarea:hover {
+  border-color: var(--cor-c8);
 }
-form textarea::-webkit-scrollbar-track{
-  background: transparent;
-}
-form textarea::placeholder {
-  font: 400 18px/24px "Roboto", sans-serif;
-  color: #949494;
-}
-form textarea:focus {
+
+.contato-form textarea:focus {
   outline: none;
-  font: 400 18px/24px "Roboto", sans-serif;
-  color: var(--cor-c12);
-  box-shadow: 0 0 0 1px var(--cor-v1);
+  border-color: var(--cor-l1);
+  box-shadow: 0 0 0 3px rgb(245 128 0 / 0.25);
 }
-/*RESPONSIVO PARA DESKTOP*/
-@media (max-width: 1600px) {
-  .acessivel {
-    margin-right: 15px;
-  }
+
+.contato-dica {
+  font-size: var(--fs-pequeno);
+  color: var(--texto-suave);
 }
-/*RESPONSIVO PARA LAPTOP*/
-@media (max-width: 1300px) {
-  .contato-titulo::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 92.71728px;
-    height: 71.15472px;
-    background: url(/img/decoracao/Decorador-1300.svg) no-repeat center;
-    top: -2px;
-    left: 26%;
-    z-index: -1;
-  }
+
+.contato-form .botao {
+  justify-self: start;
+  margin-top: var(--e-3);
 }
-@media (max-width: 1024px) {
-  .acessivel {
-    display: none;
-  }
+
+/* REDES — lista tipográfica grande */
+.contato-redes li {
+  border-top: 1px solid var(--linha-forte);
 }
+
+.contato-redes li:last-child {
+  border-bottom: 1px solid var(--linha-forte);
+}
+
+.contato-redes a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--e-1) var(--e-4);
+  padding: var(--e-6) var(--e-2);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.contato-redes a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(219 0 0 / 0.18), transparent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.contato-rede-nome {
+  font: 500 clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem) / 1 var(--fonte-titulo);
+  letter-spacing: -0.02em;
+  color: var(--texto-forte);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.contato-rede-handle {
+  grid-column: 1;
+  font-size: var(--fs-pequeno);
+  color: var(--texto-suave);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.contato-redes svg {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--texto-forte);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.contato-redes a:hover::before,
+.contato-redes a:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.contato-redes a:hover .contato-rede-nome,
+.contato-redes a:focus-visible .contato-rede-nome,
+.contato-redes a:hover .contato-rede-handle,
+.contato-redes a:focus-visible .contato-rede-handle {
+  transform: translateX(var(--e-3));
+}
+
+.contato-redes a:hover svg,
+.contato-redes a:focus-visible svg {
+  transform: translate(3px, -3px) rotate(45deg);
+}
+
 @media (max-width: 900px) {
-  .contato-secao-titulo {
-    font: 600 36px/44px "Poppins", sans-serif;
+  .contato-grade {
+    grid-template-columns: 1fr;
   }
 }
-@media (max-width: 800px) {
-  .contato-titulo::before {
-    top: -2px;
-    left: 20%;
-  }
-}
-/*RESPONSIVO PARA CELULAR*/
-@media (max-width: 767px) {
-  .botao {
-    display: inline-block;
-  }
-  .contato-bg {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .acessivel {
-    display: none;
-  }
-  .contato-subtitulo {
-    padding-left: 10px;
-    padding-right: 10px;
-    font: 400 24px/32px "Poppins", sans-serif;
-  }
-  .contato-subtitulo::before {
-    width: 30px;
-  }
-  .contato-titulo {
-    font: 600 50px/58px "Poppins", sans-serif;
-    padding-bottom: 50px;
-  }
-  .contato-titulo::before {
-    background: url(/img/decoracao/Decorador-1024.svg) no-repeat center;
-    top: -10px;
-    left: 25%;
-  }
-  .contato-secao-titulo {
-    text-align: center;
-    font: 600 30px/38px "Poppins", sans-serif;
-  }
-  .contato-secao-descricao {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .contato-form {
-    padding-left: 10px;
-    padding-right: 10px;
-    align-items: center;
-    flex-direction: column;
-  }
-  form textarea {
-    width: 100%;
-    max-width: none;
-    height: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .botao-formulario {
-    margin-top: 10px;
-  }
-}
-@media (max-width: 500px) {
-  .contato-titulo::before {
-    background: url(/img/decoracao/Decorador-1024.svg) no-repeat center;
-    top: -5px;
-    left: 13%;
+
+@media (max-width: 480px) {
+  .contato-form .botao {
+    justify-self: stretch;
   }
 }

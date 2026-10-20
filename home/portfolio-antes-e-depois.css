@@ -1,123 +1,168 @@
-.portfolio-antes-e-depois-bg {
-  background-color: var(--cor-c13);
-  position: relative;
-  padding-bottom: 100px;
-  padding-right: 100px;
+/* EVOLUÇÃO CRIATIVA */
+.evolucao {
+  overflow: hidden;
 }
-.transformacao {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-}
-.portfolio-antes-e-depois-grid {
+
+.evolucao-grade {
   display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 40px;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(var(--e-12), 6vw, var(--e-32));
   align-items: center;
 }
-.portfolio-antes-e-depois-imagem {
-  padding-top: 160px;
-}
-.portfolio-antes-e-depois-informacoes {
-  padding-top: 100px;
-}
-.portfolio-antes-e-depois-titulo {
-  font: 600 44px/52px "Poppins", sans-serif;
-  padding-bottom: 20px;
-}
-.portfolio-antes-e-depois-paragrafo {
-  padding-bottom: 40px;
-}
-.portfolio-antes-e-depois-titulo-qualidades {
-  font: 600 24px/32px "Poppins", sans-serif;
-}
-.portfolio-antes-e-depois-titulo-qualidades {
-  padding-bottom: 10px;
-}
-.portfolio-antes-e-depois-qualidades li {
-  display: flex;
-  gap: 20px;
+
+/* Três planos isométricos representam as etapas do processo.
+   Estado padrão = separados (sem JS / movimento reduzido); motion.js os "empilha" até entrarem na tela. */
+.camadas {
   position: relative;
-  z-index: 1;
-}
-.portfolio-antes-e-depois-imagem-container {
-  width: 80px;
-  height: 80px;
   aspect-ratio: 1 / 1;
-  background: linear-gradient(black, black) padding-box,
-    linear-gradient(180deg, #db0000 0%, #b40909 100%) border-box;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  perspective: 2000px;
 }
-.portfolio-antes-e-depois-imagem-container::before {
-  content: "";
+
+.camada {
+  --z: 0px;
   position: absolute;
-  top: 0px;
-  width: 1px;
-  height: 100%;
-  background-color: var(--cor-c10);
-  z-index: -1;
+  inset: 18% 12%;
+  border-radius: 14px;
+  transform: rotateX(58deg) rotateZ(-38deg) translateZ(var(--z));
+  transform-style: preserve-3d;
+  box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.9);
 }
-.portfolio-antes-e-depois-espacamento {
-  padding-top: 40px;
+
+.camada span {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 12px);
+  font: 500 var(--fs-rotulo) / 1 var(--fonte-titulo);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
 }
-/*RESPONSIVO PARA DESKTOP*/
-@media (max-width: 1600px) {
-  .transformacao {
-    margin-left: 15px;
-  }
+
+/* 1. wireframe: contornos tracejados */
+.camada-1 {
+  --z: -110px;
+  border: 1px dashed var(--cor-c8);
+  background:
+    linear-gradient(var(--cor-c9), var(--cor-c9)) 10% 14% / 40% 8% no-repeat,
+    linear-gradient(var(--cor-c10), var(--cor-c10)) 10% 30% / 80% 4% no-repeat,
+    linear-gradient(var(--cor-c10), var(--cor-c10)) 10% 38% / 64% 4% no-repeat,
+    linear-gradient(var(--cor-c10), var(--cor-c10)) 10% 76% / 36% 24% no-repeat,
+    linear-gradient(var(--cor-c10), var(--cor-c10)) 90% 76% / 36% 24% no-repeat,
+    rgb(18 18 18 / 0.9);
 }
-/*RESPONSIVO PARA LAPTOP*/
-@media (max-width: 1400px) {
-  .imagem-antes-e-depois {
-    max-width: 85%;
-    padding-left: 100px;
-  }
+
+/* 2. protótipo: blocos com cor e o botão vermelho */
+.camada-2 {
+  --z: 0px;
+  border: 1px solid var(--linha-forte);
+  background:
+    linear-gradient(var(--cor-c3), var(--cor-c3)) 10% 14% / 44% 8% no-repeat,
+    linear-gradient(var(--cor-c7), var(--cor-c7)) 10% 30% / 74% 4% no-repeat,
+    linear-gradient(var(--cor-c7), var(--cor-c7)) 10% 38% / 58% 4% no-repeat,
+    linear-gradient(180deg, #db0000, #b40909) 10% 52% / 30% 9% no-repeat,
+    linear-gradient(135deg, #2a0000, #5a0a0a) 90% 82% / 44% 30% no-repeat,
+    var(--cor-c12);
 }
-/*RESPONSIVO PARA TABLET*/
-@media (max-width: 1024px) {
-  .portfolio-antes-e-depois-bg {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .transformacao {
-    display: none;
-  }
-  .portfolio-antes-e-depois-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .imagem-antes-e-depois {
-    max-width: 100%;
-    padding-left: 0px;
-  }
+
+/* 3. código: linhas de "sintaxe" coloridas */
+.camada-3 {
+  --z: 110px;
+  border: 1px solid rgb(219 0 0 / 0.5);
+  background:
+    linear-gradient(var(--cor-l1), var(--cor-l1)) 8% 12% / 18% 3% no-repeat,
+    linear-gradient(var(--cor-c6), var(--cor-c6)) 30% 12% / 34% 3% no-repeat,
+    linear-gradient(var(--cor-c8), var(--cor-c8)) 14% 22% / 46% 3% no-repeat,
+    linear-gradient(#db0000, #db0000) 14% 32% / 22% 3% no-repeat,
+    linear-gradient(var(--cor-c6), var(--cor-c6)) 40% 32% / 30% 3% no-repeat,
+    linear-gradient(var(--cor-c8), var(--cor-c8)) 20% 42% / 52% 3% no-repeat,
+    linear-gradient(var(--cor-ve), var(--cor-ve)) 20% 52% / 28% 3% no-repeat,
+    linear-gradient(var(--cor-c8), var(--cor-c8)) 14% 62% / 40% 3% no-repeat,
+    linear-gradient(var(--cor-l1), var(--cor-l1)) 8% 72% / 14% 3% no-repeat,
+    rgb(5 5 5 / 0.92);
 }
-@media (max-width: 899px) {
-  .portfolio-antes-e-depois-grid {
-    grid-template-areas:
-      "texto"
-      "imagem";
+
+.camada-3 span {
+  color: var(--destaque-texto);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal="layers"] .camada {
+    --z: 0px;
+    opacity: 0;
+  }
+
+  html.js [data-reveal="layers"].is-in .camada {
+    opacity: 1;
+    transition: transform 1.6s var(--ease-out-expo), opacity 0.8s var(--ease-out-quart);
+  }
+
+  html.js [data-reveal="layers"].is-in .camada-1 { --z: -110px; transition-delay: 0.1s; }
+  html.js [data-reveal="layers"].is-in .camada-2 { --z: 0px; transition-delay: 0.25s; }
+  html.js [data-reveal="layers"].is-in .camada-3 { --z: 110px; transition-delay: 0.4s; }
+
+  /* no hover, as camadas se afastam um pouco mais */
+  html.js [data-reveal="layers"].is-in:hover .camada-1 { --z: -150px; transition-delay: 0s; }
+  html.js [data-reveal="layers"].is-in:hover .camada-3 { --z: 150px; transition-delay: 0s; }
+}
+
+.evolucao-texto {
+  margin-top: var(--e-6);
+  max-width: 52ch;
+  color: var(--texto-suave);
+}
+
+.qualidades {
+  margin-top: var(--e-12);
+}
+
+.qualidade {
+  display: flex;
+  gap: var(--e-5);
+  padding-block: var(--e-6);
+  border-top: 1px solid var(--linha);
+}
+
+.qualidade-icone {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--linha-forte);
+  border-radius: 50%;
+  fill: none;
+  stroke: var(--cor-c3);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: border-color 0.4s var(--ease-out-quart), stroke 0.4s var(--ease-out-quart),
+    transform 0.5s var(--ease-out-expo);
+}
+
+.qualidade:hover .qualidade-icone {
+  border-color: var(--destaque);
+  stroke: var(--destaque-texto);
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.qualidade-titulo {
+  margin-bottom: var(--e-1);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.qualidade p {
+  font-size: var(--fs-pequeno);
+  color: var(--texto-suave);
+}
+
+@media (max-width: 900px) {
+  .evolucao-grade {
     grid-template-columns: 1fr;
   }
-  .portfolio-antes-e-depois-informacoes {
-    grid-area: texto;
-  }
-  .imagem-antes-e-depois {
-    grid-area: imagem;
-  }
-}
-/*RESPONSIVO PARA CELULAR*/
-@media (max-width: 767px) {
-  .portfolio-antes-e-depois-titulo {
-    font: 600 2.5rem/3rem Poppins, sans-serif;
-  }
-  .portfolio-antes-e-depois-imagem {
-    padding-top: 50px;
+
+  .camadas {
+    order: 2;
+    width: min(100%, 520px);
+    margin-inline: auto;
   }
 }

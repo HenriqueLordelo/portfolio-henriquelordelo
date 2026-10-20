@@ -1,350 +1,179 @@
-.desenvolvimentos-bg {
-  background-color: #1a1a1a;
-  position: relative;
-  padding: 100px;
+.projetos {
+  background: var(--fundo-elevado);
 }
-.evolucao {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-.desenvolvimentos-subtitulo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 30px;
-}
-.desenvolvimentos-subtitulo::before {
-  content: "";
-  display: inline-block;
-  width: 35px;
-  height: 5px;
-  border-radius: 10px;
-  margin-right: 10px;
-  background: linear-gradient(180deg, #db0000 0%, #b40909 100%);
-}
-.desenvolvimentos-titulo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-.desenvolvimentos-titulo::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 103.0192px;
-  height: 79.0608px;
-  background: url(/img/decoracao/Decorador.svg) no-repeat center;
-  top: -10px;
-  left: 235px;
-  z-index: -1;
-}
-.desenvolvimentos-separador-ponto {
-  color: var(--cor-l1);
-}
-.desenvolvimentos-grid {
+
+.projetos-lista {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-areas:
-    "bikcraft-informacoes desenvolvimentos-separador-de-colunas bikcraft-imagem"
-    "portfolio-imagem desenvolvimentos-separador-de-colunas portfolio-informacoes"
-    "elisa-informacoes desenvolvimentos-separador-de-colunas elisa-imagem"
-    "guilherme-imagem desenvolvimentos-separador-de-colunas guilherme-informacoes";
-  gap: 40px;
-  padding-top: 100px;
+  gap: clamp(var(--e-24), 12vw, 192px);
 }
-.bikcraft-informacoes {
-  grid-area: bikcraft-informacoes;
+
+/* composição alternada e assimétrica: mídia ocupa 7 de 12 colunas */
+.projeto {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--e-6);
+  align-items: end;
 }
-.desenvolvimentos-separador-de-colunas {
-  grid-area: desenvolvimentos-separador-de-colunas;
+
+.projeto-midia {
+  grid-column: 1 / span 7;
+  grid-row: 1;
 }
-.bikcraft-imagem {
-  grid-area: bikcraft-imagem;
+
+.projeto-info {
+  grid-column: 9 / span 4;
+  grid-row: 1;
 }
-.portfolio-informacoes {
-  grid-area: portfolio-informacoes;
+
+.projeto:nth-child(even) .projeto-midia {
+  grid-column: 6 / span 7;
 }
-.portfolio-imagem {
-  grid-area: portfolio-imagem;
+
+.projeto:nth-child(even) .projeto-info {
+  grid-column: 1 / span 4;
 }
-.elisa-informacoes {
-  grid-area: elisa-informacoes;
-}
-.elisa-imagem {
-  grid-area: elisa-imagem;
-}
-.guilherme-informacoes {
-  grid-area: guilherme-informacoes;
-}
-.guilherme-imagem {
-  grid-area: guilherme-imagem;
-}
-.desenvolvimentos-separador-de-colunas {
-  width: 5px;
-  height: auto;
-  border-radius: 10px;
-  background: linear-gradient(
-    153deg,
-    #1a1a1a 14.06%,
-    #db0000 49.48%,
-    #1a1a1a 78.13%
-  );
-}
-.desenvolvimentos-imagens-projetos {
-  border-radius: 10px;
-}
-.desenvolvimentos-links-dos-projetos {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-}
-.informacoes {
-  padding-top: 50px;
-  padding-bottom: 100px;
-}
-.desenvolvimentos-imagem {
-  margin: 0px;
+
+/* MÍDIA */
+.projeto-midia {
   position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--raio);
+  background: var(--superficie);
+  box-shadow: 0 0 0 1px var(--linha), 0 40px 80px -40px rgb(0 0 0 / 0.8);
 }
-.desenvolvimentos-imagens-projetos {
+
+.projeto-midia img,
+.projeto-midia video {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  transition: opacity 0.8s ease-in-out;
-  z-index: 2;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
-.desenvolvimentos-video {
+
+.projeto-midia video {
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out-quart);
+}
+
+.projeto.tocando .projeto-midia video {
+  opacity: 1;
+}
+
+/* rótulo que segue o cursor dentro da mídia (somente mouse) */
+.projeto-cursor {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  height: auto;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  z-index: 1;
+  z-index: 2;
+  display: none;
+  padding: var(--e-3) var(--e-5);
+  border-radius: 999px;
+  background: var(--cor-c0);
+  color: var(--cor-c13);
+  font: 500 var(--fs-pequeno) / 1 var(--fonte-titulo);
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate3d(var(--cx, 50%), var(--cy, 50%), 0) translate(-50%, -50%) scale(0);
+  transition: transform 0.45s var(--ease-out-expo);
 }
-.desenvolvimentos-imagem:hover .desenvolvimentos-imagens-projetos {
-  opacity: 0;
-}
-.desenvolvimentos-imagem:hover .desenvolvimentos-video {
-  opacity: 1;
-}
-.desenvolvimentos-texto {
-  padding-top: 20px;
-  padding-bottom: 30px;
-}
-.desenvolvimentos-projetos {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.desenvolvimentos-projetos::after {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("/img/desenvolvimentos/Seta.png");
-  margin-left: 10px;
-}
-.desenvolvimentos-projetos::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  display: block;
-  height: 2px;
-  width: 100%;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #db0000 0%, #b40909 100%);
-}
-.desenvolvimentos-github {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.desenvolvimentos-github::after {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("/img/desenvolvimentos/GitHub.png");
-  margin-left: 10px;
-}
-.desenvolvimentos-github::before {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 0px;
-  background: var(--cor-l1);
-  margin-top: 30px;
-  transition: 0.3s;
-  position: absolute;
-}
-.desenvolvimentos-github:hover::before {
-  width: 100%;
-}
-/*RESPONSIVO PARA DESKTOP*/
-@media (max-width: 1600px) {
-  .evolucao {
-    margin-right: 15px;
+
+@media (hover: hover) and (pointer: fine) {
+  .projeto-midia {
+    cursor: none;
   }
-}
-/*RESPONSIVO PARA LAPTOP*/
-@media (max-width: 1350px) {
-  .desenvolvimentos-titulo::before {
-    top: -10px;
-    left: 17.5%;
-  }
-}
-@media (max-width: 1300px) {
-  .desenvolvimentos-titulo::before {
-    top: -5px;
-    left: 15.5%;
-  }
-}
-@media (max-width: 1250px) {
-  .desenvolvimentos-titulo::before {
-    top: -5px;
-    left: 14%;
-  }
-}
-@media (max-width: 1200px) {
-  .desenvolvimentos-titulo::before {
-    top: -5px;
-    left: 12%;
-  }
-}
-/*RESPONSIVO PARA TABLET*/
-@media (max-width: 1024px) {
-  .desenvolvimentos-bg {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .desenvolvimentos-titulo::before {
-    content: "";
+
+  .projeto-cursor {
     display: block;
-    position: absolute;
-    width: 103.0192px;
-    height: 79.0608px;
-    background: url(/img/decoracao/Decorador-1024.svg) no-repeat center;
-    top: -10px;
-    left: 13%;
-    z-index: -1;
   }
-  .evolucao {
-    display: none;
-  }
-  .projeto-video {
-    display: none;
+
+  .projeto-midia:hover .projeto-cursor {
+    transform: translate3d(var(--cx, 50%), var(--cy, 50%), 0) translate(-50%, -50%) scale(1);
   }
 }
-@media (max-width: 924px) {
-  .desenvolvimentos-titulo::before {
-    top: -10px;
-    left: 9%;
-  }
+
+/* INFORMAÇÕES */
+.projeto-numero {
+  display: block;
+  margin-bottom: var(--e-4);
+  font: 500 clamp(3.5rem, 2.5rem + 4vw, 6.5rem) / 0.9 var(--fonte-titulo);
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--cor-c8);
+  transition: -webkit-text-stroke-color 0.5s var(--ease-out-quart), color 0.5s var(--ease-out-quart);
 }
-@media (max-width: 824px) {
-  .desenvolvimentos-titulo::before {
-    top: -10px;
-    left: 3%;
-  }
+
+.projeto:hover .projeto-numero,
+.projeto:focus-within .projeto-numero {
+  -webkit-text-stroke-color: var(--destaque);
 }
-@media (max-width: 768px) {
-  .desenvolvimentos-titulo::before {
-    top: -10px;
-    left: 0%;
-  }
+
+.projeto-titulo {
+  font-size: var(--fs-titulo-projeto);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
 }
-/*RESPONSIVO PARA CELULAR*/
-@media (max-width: 767px) {
-  .desenvolvimentos-subtitulo {
-    font: 400 24px/32px "Poppins", sans-serif;
-  }
-  .desenvolvimentos-subtitulo::before {
-    width: 30px;
-  }
-  .desenvolvimentos-titulo {
-    font: 600 50px/58px "Poppins", sans-serif;
-  }
-  .desenvolvimentos-titulo::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 103.0192px;
-    height: 79.0608px;
-    background: url(/img/decoracao/Decorador-1024.svg) no-repeat center;
-    top: -10px;
-    left: 13%;
-    z-index: -1;
-  }
-  .desenvolvimentos-grid {
-    display: grid;
+
+.projeto-texto {
+  margin-top: var(--e-5);
+  color: var(--texto-suave);
+}
+
+.projeto .tags {
+  margin-top: var(--e-6);
+}
+
+.projeto-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2) var(--e-8);
+  margin-top: var(--e-6);
+  padding-top: var(--e-4);
+  border-top: 1px solid var(--linha);
+}
+
+@media (max-width: 900px) {
+  .projeto,
+  .projeto:nth-child(even) {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "bikcraft-informacoes"
-      "bikcraft-imagem"
-      "portfolio-informacoes"
-      "portfolio-imagem"
-      "elisa-informacoes"
-      "elisa-imagem"
-      "guilherme-informacoes"
-      "guilherme-imagem";
-    gap: 40px;
-    padding-top: 100px;
+    gap: var(--e-8);
   }
-  .desenvolvimentos-links-dos-projetos {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: normal;
+
+  .projeto .projeto-midia,
+  .projeto:nth-child(even) .projeto-midia,
+  .projeto .projeto-info,
+  .projeto:nth-child(even) .projeto-info {
+    grid-column: 1;
+    grid-row: auto;
   }
-  .desenvolvimentos-links-dos-projetos a {
-    display: inline-block;
+
+  .projeto-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--e-6);
+    align-items: baseline;
   }
-  .informacoes {
-    padding-top: 0px;
-    padding-bottom: 50px;
+
+  .projeto-numero {
+    grid-row: span 2;
+    margin-bottom: 0;
   }
-  .desenvolvimentos-imagem {
-    margin: 0px;
-    padding-bottom: 50px;
-  }
-  .desenvolvimentos-separador-de-colunas {
-    display: none;
-  }
-  .informacoes-titulo {
-    font: 500 32px/40px "Poppins", sans-serif;
+
+  .projeto-info > :not(.projeto-numero):not(.projeto-titulo) {
+    grid-column: 1 / -1;
   }
 }
-@media (max-width: 520px) {
-  .desenvolvimentos-titulo {
-    font: 600 2.1875rem/2.6875rem "Poppins", sans-serif;
-  }
-}
-@media (max-width: 450px) {
-  .desenvolvimentos-titulo::before {
-    content: "";
+
+@media (max-width: 480px) {
+  .projeto-info {
     display: block;
-    position: absolute;
-    width: 103.0192px;
-    height: 79.0608px;
-    background: url(/img/decoracao/Decorador-1024.svg) no-repeat center;
-    top: -16px;
-    left: 0%;
-    z-index: -1;
   }
-}
-@media (max-width: 430px) {
-  .desenvolvimentos-titulo::before {
-    top: -16px;
-    left: -5%;
+
+  .projeto-numero {
+    margin-bottom: var(--e-3);
+    font-size: 3rem;
   }
 }
