@@ -81,7 +81,7 @@
   color: var(--texto-suave);
 }
 
-/* PERFIL — cartão tipográfico (substitui o placeholder cinza) */
+/* PERFIL — foto com o brilho vermelho da identidade por cima */
 .sobremim-lateral {
   display: grid;
   gap: var(--e-16);
@@ -93,39 +93,63 @@
   overflow: hidden;
   border: 1px solid var(--linha);
   border-radius: var(--raio);
+  background: var(--superficie);
+}
+
+.perfil-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  filter: saturate(0.8) contrast(1.05);
+  transition: filter 0.8s var(--ease-out-quart);
+}
+
+/* tingimento vermelho (multiply): a parede clara vira o vermelho da identidade
+   e o "furo" branco no centro preserva o rosto (branco em multiply não altera nada) */
+.perfil::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background:
-    radial-gradient(circle at 70% 20%, rgb(219 0 0 / 0.35), transparent 55%),
-    radial-gradient(circle at 10% 90%, rgb(245 128 0 / 0.12), transparent 50%),
-    var(--superficie);
+    radial-gradient(ellipse 50% 42% at 44% 36%, #fff 0%, rgb(255 255 255 / 0.85) 40%, rgb(255 255 255 / 0) 100%),
+    radial-gradient(circle at 88% 8%, #ff4a3a 0%, transparent 50%),
+    linear-gradient(165deg, #d8463a 0%, #9a2420 50%, #3c0f0d 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity 0.8s var(--ease-out-quart);
+}
+
+.perfil:hover .perfil-foto {
+  filter: saturate(1) contrast(1);
+}
+
+/* no hover o tingimento recua e a foto aparece mais natural */
+.perfil:hover::before {
+  opacity: 0.5;
 }
 
 .perfil::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
+  z-index: 1;
+  /* grade fina da identidade + escurecimento na base para as etiquetas */
+  background:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(180deg, transparent 50%, rgb(10 10 10 / 0.75) 100%);
   pointer-events: none;
-}
-
-.perfil-monograma {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font: 600 clamp(8rem, 5rem + 12vw, 16rem) / 1 var(--fonte-titulo);
-  letter-spacing: -0.08em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgb(255 255 255 / 0.22);
-  user-select: none;
 }
 
 .perfil-tracos {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .perfil-traco {
@@ -144,21 +168,22 @@
   transform: translate3d(var(--px, 0px), var(--py, 0px), 0);
 }
 
+/* posições escolhidas para não cobrir o rosto */
 .perfil-traco:nth-child(1) {
-  top: 12%;
-  left: 8%;
+  top: 6%;
+  left: 6%;
 }
 .perfil-traco:nth-child(2) {
-  top: 30%;
-  right: 8%;
+  top: 34%;
+  right: 5%;
 }
 .perfil-traco:nth-child(3) {
-  bottom: 26%;
-  left: 12%;
+  bottom: 22%;
+  left: 6%;
 }
 .perfil-traco:nth-child(4) {
-  bottom: 10%;
-  right: 12%;
+  bottom: 8%;
+  right: 8%;
 }
 
 /* COMPETÊNCIAS — rótulos sempre visíveis (antes eram tooltips só no hover) */
