@@ -48,7 +48,9 @@
   height: 44px;
   border: 1px solid var(--linha-forte);
   border-radius: 50%;
-  transition: border-color 0.3s var(--ease-out-quart), transform 0.4s var(--ease-out-expo);
+  transition:
+    border-color 0.3s var(--ease-out-quart),
+    transform 0.4s var(--ease-out-expo);
 }
 
 .footer-redes a:hover,

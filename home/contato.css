@@ -10,8 +10,14 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, var(--fundo) 0%, rgb(10 10 10 / 0.4) 40%, rgb(10 10 10 / 0.85) 100%),
-    url("../img/contato/Background%20do%20Contato.webp") center bottom / cover no-repeat;
+    linear-gradient(
+      180deg,
+      var(--fundo) 0%,
+      rgb(10 10 10 / 0.4) 40%,
+      rgb(10 10 10 / 0.85) 100%
+    ),
+    url("../img/contato/Background%20do%20Contato.webp") center bottom / cover
+      no-repeat;
 }
 
 .contato-grade {
@@ -63,7 +69,9 @@
   background: rgb(0 0 0 / 0.5);
   color: var(--texto-forte);
   line-height: 1.5;
-  transition: border-color 0.3s var(--ease-out-quart), box-shadow 0.3s var(--ease-out-quart);
+  transition:
+    border-color 0.3s var(--ease-out-quart),
+    box-shadow 0.3s var(--ease-out-quart);
 }
 
 .contato-form textarea::placeholder {

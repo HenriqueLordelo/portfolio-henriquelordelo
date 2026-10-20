@@ -12,7 +12,10 @@
     const rotulo = document.querySelector("[data-menu-rotulo]");
     if (!nav || !botao) return;
     const links = nav.querySelectorAll(".nav-menu a");
-    const foraDoMenu = [document.getElementById("conteudo"), document.querySelector(".footer")];
+    const foraDoMenu = [
+      document.getElementById("conteudo"),
+      document.querySelector(".footer"),
+    ];
     const larguraDesktop = window.matchMedia("(min-width: 961px)");
 
     function definir(aberto, devolverFoco) {
@@ -29,11 +32,16 @@
       }
     }
 
-    botao.addEventListener("click", () => definir(!nav.classList.contains("aberto"), true));
-    links.forEach((link) => link.addEventListener("click", () => definir(false, false)));
+    botao.addEventListener("click", () =>
+      definir(!nav.classList.contains("aberto"), true),
+    );
+    links.forEach((link) =>
+      link.addEventListener("click", () => definir(false, false)),
+    );
 
     document.addEventListener("keydown", (evento) => {
-      if (evento.key === "Escape" && nav.classList.contains("aberto")) definir(false, true);
+      if (evento.key === "Escape" && nav.classList.contains("aberto"))
+        definir(false, true);
     });
 
     larguraDesktop.addEventListener("change", (mq) => {
@@ -52,7 +60,10 @@
       const y = window.scrollY;
       const delta = y - ultimaPosicao;
       header.classList.toggle("header-rolado", y > 24);
-      if (!document.body.classList.contains("menu-aberto") && Math.abs(delta) > 6) {
+      if (
+        !document.body.classList.contains("menu-aberto") &&
+        Math.abs(delta) > 6
+      ) {
         header.classList.toggle("header-oculto", delta > 0 && y > 480);
       }
       if (Math.abs(delta) > 6) ultimaPosicao = y;
@@ -66,19 +77,25 @@
         agendado = true;
         requestAnimationFrame(atualizar);
       },
-      { passive: true }
+      { passive: true },
     );
 
     // ao navegar pelo teclado, o cabeçalho reaparece para o foco não ficar escondido
-    header.addEventListener("focusin", () => header.classList.remove("header-oculto"));
+    header.addEventListener("focusin", () =>
+      header.classList.remove("header-oculto"),
+    );
     atualizar();
   }
 
   /* ---------- NAVEGAÇÃO ATIVA: marca o link da seção visível ---------- */
   function iniciarNavegacaoAtiva() {
     if (!("IntersectionObserver" in window)) return;
-    const links = Array.from(document.querySelectorAll(".nav-menu a[href^='#']"));
-    const secoes = links.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    const links = Array.from(
+      document.querySelectorAll(".nav-menu a[href^='#']"),
+    );
+    const secoes = links
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
 
     const observador = new IntersectionObserver(
       (entradas) => {
@@ -91,7 +108,7 @@
           });
         });
       },
-      { rootMargin: "-45% 0px -50% 0px" }
+      { rootMargin: "-45% 0px -50% 0px" },
     );
 
     secoes.forEach((secao) => observador.observe(secao));
@@ -161,12 +178,17 @@
         copiarTexto(valor)
           .then(() => {
             botao.setAttribute("data-copiado", "");
-            if (status) status.textContent = botao.textContent.trim() + " copiado.";
+            if (status)
+              status.textContent = botao.textContent.trim() + " copiado.";
             clearTimeout(temporizador);
-            temporizador = setTimeout(() => botao.removeAttribute("data-copiado"), 1600);
+            temporizador = setTimeout(
+              () => botao.removeAttribute("data-copiado"),
+              1600,
+            );
           })
           .catch(() => {
-            if (status) status.textContent = "Não foi possível copiar. Código: " + valor;
+            if (status)
+              status.textContent = "Não foi possível copiar. Código: " + valor;
           });
       });
     });

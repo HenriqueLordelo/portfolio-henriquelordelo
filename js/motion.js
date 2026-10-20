@@ -15,7 +15,10 @@
   /* ---------- ENTRADA DO HERO ----------
      Espera as fontes (no máximo 600ms) para o título não trocar de fonte no meio da animação. */
   function iniciarHero() {
-    const fontes = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    const fontes =
+      document.fonts && document.fonts.ready
+        ? document.fonts.ready
+        : Promise.resolve();
     const limite = new Promise((resolve) => setTimeout(resolve, 600));
     Promise.race([fontes, limite]).then(() => {
       requestAnimationFrame(() => root.classList.add("is-ready"));
@@ -26,7 +29,9 @@
   function iniciarRevelacoes() {
     // índice de stagger para itens dentro de um grupo
     document.querySelectorAll("[data-reveal-group]").forEach((grupo) => {
-      grupo.querySelectorAll("[data-reveal]").forEach((item, i) => item.style.setProperty("--i", i));
+      grupo
+        .querySelectorAll("[data-reveal]")
+        .forEach((item, i) => item.style.setProperty("--i", i));
     });
 
     const itens = document.querySelectorAll("[data-reveal]");
@@ -40,7 +45,8 @@
     // "intersecta". Para revelações por recorte, observamos o pai e marcamos o filho.
     const alvos = new Map();
     itens.forEach((item) => {
-      const observado = item.dataset.reveal === "clip" ? item.parentElement : item;
+      const observado =
+        item.dataset.reveal === "clip" ? item.parentElement : item;
       if (!alvos.has(observado)) alvos.set(observado, []);
       alvos.get(observado).push(item);
     });
@@ -54,7 +60,7 @@
           observador.unobserve(entrada.target);
         });
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
     );
 
     alvos.forEach((_, observado) => observador.observe(observado));
@@ -80,7 +86,10 @@
       atual.x += (alvo.x - atual.x) * suavidade;
       atual.y += (alvo.y - atual.y) * suavidade;
       aplicar(atual.x, atual.y);
-      if (Math.abs(alvo.x - atual.x) > 0.1 || Math.abs(alvo.y - atual.y) > 0.1) {
+      if (
+        Math.abs(alvo.x - atual.x) > 0.1 ||
+        Math.abs(alvo.y - atual.y) > 0.1
+      ) {
         quadro = requestAnimationFrame(passo);
       } else {
         quadro = 0;
@@ -126,7 +135,7 @@
         const r = hero.getBoundingClientRect();
         seguidor.mover(evento.clientX - r.left, evento.clientY - r.top);
       },
-      { passive: true }
+      { passive: true },
     );
   }
 
@@ -151,11 +160,16 @@
       (evento) => {
         if (!efeitosDeCursor()) return;
         const r = area.getBoundingClientRect();
-        seguidor.mover((evento.clientX - r.left) / r.width - 0.5, (evento.clientY - r.top) / r.height - 0.5);
+        seguidor.mover(
+          (evento.clientX - r.left) / r.width - 0.5,
+          (evento.clientY - r.top) / r.height - 0.5,
+        );
       },
-      { passive: true }
+      { passive: true },
     );
-    area.addEventListener("pointerleave", () => seguidor.mover(0, 0), { passive: true });
+    area.addEventListener("pointerleave", () => seguidor.mover(0, 0), {
+      passive: true,
+    });
   }
 
   /* ---------- PROJETOS: rótulo "Ver projeto" que segue o cursor ---------- */
@@ -175,7 +189,7 @@
             quadro = 0;
           });
         },
-        { passive: true }
+        { passive: true },
       );
     });
   }

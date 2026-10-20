@@ -21,7 +21,9 @@
   font: 500 0.9375rem / 1 var(--fonte-titulo);
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: color 0.35s var(--ease-out-quart), border-color 0.35s var(--ease-out-quart),
+  transition:
+    color 0.35s var(--ease-out-quart),
+    border-color 0.35s var(--ease-out-quart),
     transform 0.35s var(--ease-out-quart);
 }
 

@@ -1,569 +1,1627 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Henrique Lordêlo — Desenvolvedor Front-end &amp; UX/UI Designer
+    </title>
+    <meta
+      name="description"
+      content="Portfólio de Henrique Lordêlo, desenvolvedor front-end e UX/UI designer. Conheça projetos em HTML, CSS, JavaScript e WordPress e entre em contato."
+    />
+    <link rel="canonical" href="https://henriquelordelo.com/" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Henrique Lordêlo — Desenvolvedor Front-end &amp; UX/UI Designer</title>
-  <meta name="description" content="Portfólio de Henrique Lordêlo, desenvolvedor front-end e UX/UI designer. Conheça projetos em HTML, CSS, JavaScript e WordPress e entre em contato.">
-  <link rel="canonical" href="https://henriquelordelo.com/">
-  <meta name="theme-color" content="#0a0a0a">
-  <meta name="color-scheme" content="dark">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Henrique Lordêlo" />
+    <meta
+      property="og:title"
+      content="Henrique Lordêlo — Desenvolvedor Front-end &amp; UX/UI Designer"
+    />
+    <meta
+      property="og:description"
+      content="Projetos, processo e contato de Henrique Lordêlo, desenvolvedor front-end e UX/UI designer."
+    />
+    <meta property="og:url" content="https://henriquelordelo.com/" />
+    <meta
+      property="og:image"
+      content="https://henriquelordelo.com/img/og/og-cover.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Henrique Lordêlo — Desenvolvedor Front-end e UX/UI Designer"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Henrique Lordêlo">
-  <meta property="og:title" content="Henrique Lordêlo — Desenvolvedor Front-end &amp; UX/UI Designer">
-  <meta property="og:description" content="Projetos, processo e contato de Henrique Lordêlo, desenvolvedor front-end e UX/UI designer.">
-  <meta property="og:url" content="https://henriquelordelo.com/">
-  <meta property="og:image" content="https://henriquelordelo.com/img/og/og-cover.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Henrique Lordêlo — Desenvolvedor Front-end e UX/UI Designer">
-  <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml" />
 
-  <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
-
-  <!-- Ativa os estados iniciais das animações somente quando há JS. Se o script principal
+    <!-- Ativa os estados iniciais das animações somente quando há JS. Se o script principal
        não iniciar em 3s, o conteúdo é liberado para nunca ficar invisível. -->
-  <script>
-    document.documentElement.classList.add("js");
-    window.setTimeout(function () {
-      if (!window.__motionBoot) document.documentElement.classList.remove("js");
-    }, 3000);
-  </script>
+    <script>
+      document.documentElement.classList.add("js");
+      window.setTimeout(function () {
+        if (!window.__motionBoot)
+          document.documentElement.classList.remove("js");
+      }, 3000);
+    </script>
 
-  <link rel="preload" href="fontes/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fontes/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fontes/roboto-variavel.woff2" as="font" type="font/woff2" crossorigin>
+    <link
+      rel="preload"
+      href="fontes/poppins-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fontes/poppins-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fontes/roboto-variavel.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
-  <link rel="stylesheet" href="utilidades/cores.css">
-  <link rel="stylesheet" href="utilidades/tipografias.css">
-  <link rel="stylesheet" href="global/global.css">
-  <link rel="stylesheet" href="utilidades/componentes.css">
-  <link rel="stylesheet" href="utilidades/animacao.css">
-  <link rel="stylesheet" href="global/header.css">
-  <link rel="stylesheet" href="home/introducao.css">
-  <link rel="stylesheet" href="home/sobremim.css">
-  <link rel="stylesheet" href="home/desenvolvimentos.css">
-  <link rel="stylesheet" href="home/portfolio-tipografias.css">
-  <link rel="stylesheet" href="home/portfolio-paleta-espacos.css">
-  <link rel="stylesheet" href="home/portfolio-antes-e-depois.css">
-  <link rel="stylesheet" href="home/contato.css">
-  <link rel="stylesheet" href="global/footer.css">
+    <link rel="stylesheet" href="utilidades/cores.css" />
+    <link rel="stylesheet" href="utilidades/tipografias.css" />
+    <link rel="stylesheet" href="global/global.css" />
+    <link rel="stylesheet" href="utilidades/componentes.css" />
+    <link rel="stylesheet" href="utilidades/animacao.css" />
+    <link rel="stylesheet" href="global/header.css" />
+    <link rel="stylesheet" href="home/introducao.css" />
+    <link rel="stylesheet" href="home/sobremim.css" />
+    <link rel="stylesheet" href="home/desenvolvimentos.css" />
+    <link rel="stylesheet" href="home/portfolio-tipografias.css" />
+    <link rel="stylesheet" href="home/portfolio-paleta-espacos.css" />
+    <link rel="stylesheet" href="home/portfolio-antes-e-depois.css" />
+    <link rel="stylesheet" href="home/contato.css" />
+    <link rel="stylesheet" href="global/footer.css" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
+    <script type="application/ld+json">
       {
-        "@type": "Person",
-        "@id": "https://henriquelordelo.com/#pessoa",
-        "name": "Henrique Lordêlo",
-        "jobTitle": "Desenvolvedor Front-end e UX/UI Designer",
-        "url": "https://henriquelordelo.com/",
-        "sameAs": [
-          "https://www.linkedin.com/in/henrique-lordelo",
-          "https://github.com/HenriqueLordelo",
-          "https://www.instagram.com/rickzsz/"
-        ],
-        "knowsAbout": ["HTML", "CSS", "JavaScript", "WordPress", "MySQL", "GitHub", "UX Design", "UI Design"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://henriquelordelo.com/#site",
-        "url": "https://henriquelordelo.com/",
-        "name": "Henrique Lordêlo",
-        "inLanguage": "pt-BR",
-        "publisher": { "@id": "https://henriquelordelo.com/#pessoa" }
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://henriquelordelo.com/#pessoa",
+            "name": "Henrique Lordêlo",
+            "jobTitle": "Desenvolvedor Front-end e UX/UI Designer",
+            "url": "https://henriquelordelo.com/",
+            "sameAs": [
+              "https://www.linkedin.com/in/henrique-lordelo",
+              "https://github.com/HenriqueLordelo",
+              "https://www.instagram.com/rickzsz/"
+            ],
+            "knowsAbout": [
+              "HTML",
+              "CSS",
+              "JavaScript",
+              "WordPress",
+              "MySQL",
+              "GitHub",
+              "UX Design",
+              "UI Design"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://henriquelordelo.com/#site",
+            "url": "https://henriquelordelo.com/",
+            "name": "Henrique Lordêlo",
+            "inLanguage": "pt-BR",
+            "publisher": { "@id": "https://henriquelordelo.com/#pessoa" }
+          }
+        ]
       }
-    ]
-  }
-  </script>
+    </script>
 
-  <script src="js/motion.js" defer></script>
-  <script src="js/script.js" defer></script>
-</head>
+    <script src="js/motion.js" defer></script>
+    <script src="js/script.js" defer></script>
+  </head>
 
-<body id="topo">
-  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
-  <div class="progresso-leitura" aria-hidden="true"></div>
+  <body id="topo">
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <div class="progresso-leitura" aria-hidden="true"></div>
 
-  <header class="header" data-header>
-    <div class="header-interno container">
-      <a class="logo" href="#topo" aria-label="Henrique Lordêlo — voltar ao início">
-        <svg class="logo-marca" viewBox="0 0 13 23" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="logo-gradiente" x1="5.5" y1="-4" x2="5.5" y2="28" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#DB0000" />
-              <stop offset="1" stop-color="#B40909" />
-            </linearGradient>
-          </defs>
-          <path d="M4.688 19.448H12.048V23H0.208V0.664H4.688V19.448Z" fill="url(#logo-gradiente)" />
-        </svg>
-        <span class="logo-texto">Henrique Lordêlo</span>
-      </a>
-
-      <nav class="nav" id="nav" aria-label="Principal">
-        <button class="nav-botao" type="button" aria-expanded="false" aria-controls="nav-menu" data-menu-botao>
-          <span class="sr-only" data-menu-rotulo>Abrir menu</span>
-          <span class="nav-botao-linhas" aria-hidden="true"></span>
-        </button>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#quemsou"><span class="nav-indice" aria-hidden="true">01</span>Quem Sou</a></li>
-          <li><a href="#desenvolvimentos"><span class="nav-indice" aria-hidden="true">02</span>Desenvolvimentos</a></li>
-          <li><a href="#portfolio"><span class="nav-indice" aria-hidden="true">03</span>Portfólio</a></li>
-          <li><a href="#contato"><span class="nav-indice" aria-hidden="true">04</span>Contato</a></li>
-        </ul>
-      </nav>
-
-      <a class="botao botao-pequeno header-cta" href="#desenvolvimentos">
-        <span class="botao-texto">Conhecer projetos</span>
-      </a>
-    </div>
-  </header>
-
-  <main id="conteudo">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-titulo" data-hero>
-      <div class="hero-fundo" aria-hidden="true">
-        <div class="hero-grade"></div>
-        <div class="hero-brilho" data-hero-brilho></div>
-      </div>
-
-      <div class="hero-interno container">
-        <p class="hero-sobretitulo">
-          <span class="ponto-status" aria-hidden="true"></span>
-          <span class="hero-sobretitulo-texto">Portfólio <span class="hero-ano">2023 — hoje</span></span>
-        </p>
-
-        <h1 class="hero-titulo" id="hero-titulo">
-          <span class="hero-nome">
-            <span class="hero-linha"><span class="hero-linha-interna" style="--l:0">Henrique</span></span>
-            <span class="hero-linha"><span class="hero-linha-interna" style="--l:1">Lordêlo<span class="destaque-ponto">.</span></span></span>
-          </span>
-          <span class="hero-papel">
-            <span class="hero-palavra" style="--w:0">Desenvolvedor</span>
-            <span class="hero-palavra" style="--w:1">Front-end</span>
-            <span class="hero-palavra hero-e" style="--w:2">&amp;</span>
-            <span class="hero-palavra" style="--w:3">UX/UI</span>
-            <span class="hero-palavra" style="--w:4">Designer</span>
-          </span>
-        </h1>
-
-        <div class="hero-rodape">
-          <span class="hero-regua" aria-hidden="true"></span>
-          <p class="hero-texto">Se você procura um profissional comprometido, criativo e que ama o que faz, estou pronto para embarcar nessa jornada com você!</p>
-          <div class="hero-acoes">
-            <a class="botao" href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
-              <span class="botao-texto">Entre em contato</span>
-              <svg class="botao-seta" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg>
-              <span class="sr-only">(abre o WhatsApp em nova aba)</span>
-            </a>
-            <a class="botao botao-contorno" href="#desenvolvimentos">
-              <span class="botao-texto">Conhecer projetos</span>
-              <svg class="botao-seta botao-seta-baixo" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2v12M3 9l5 5 5-5" /></svg>
-            </a>
-          </div>
-        </div>
-
-        <ul class="hero-redes">
-          <li><a href="https://www.linkedin.com/in/henrique-lordelo" target="_blank" rel="noopener" aria-label="LinkedIn (abre em nova aba)"><img src="img/redes%20sociais/LinkedIn.png" alt="" width="20" height="20"></a></li>
-          <li><a href="https://github.com/HenriqueLordelo" target="_blank" rel="noopener" aria-label="GitHub (abre em nova aba)"><img src="img/redes%20sociais/GitHub.png" alt="" width="20" height="20"></a></li>
-          <li><a href="https://www.instagram.com/rickzsz/" target="_blank" rel="noopener" aria-label="Instagram (abre em nova aba)"><img src="img/redes%20sociais/Instagram.png" alt="" width="20" height="20"></a></li>
-          <li><a href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="WhatsApp (abre em nova aba)"><img src="img/redes%20sociais/WhatsApp.png" alt="" width="20" height="20"></a></li>
-        </ul>
-
-        <a class="hero-rolar" href="#quemsou">
-          <span class="hero-rolar-linha" aria-hidden="true"></span>
-          <span>Rolar</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- FAIXA DE PALAVRAS (decorativa: as palavras-tema que antes ficavam nas laterais) -->
-    <div class="faixa" aria-hidden="true" data-faixa>
-      <div class="faixa-trilho">
-        <ul class="faixa-lista">
-          <li>Criatividade</li><li>Inovação</li><li>Versatilidade</li><li>Evolução</li>
-          <li>Singularidade</li><li>Estilo</li><li>Transformação</li><li>Acessível</li>
-        </ul>
-        <ul class="faixa-lista">
-          <li>Criatividade</li><li>Inovação</li><li>Versatilidade</li><li>Evolução</li>
-          <li>Singularidade</li><li>Estilo</li><li>Transformação</li><li>Acessível</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- SOBRE MIM -->
-    <section class="secao sobremim" id="quemsou" aria-labelledby="sobremim-titulo">
-      <div class="container">
-        <header class="secao-cabecalho">
-          <p class="sobretitulo" data-reveal="draw"><span class="sobretitulo-indice">01</span>Sobre mim</p>
-          <h2 class="titulo-secao" id="sobremim-titulo" data-reveal="mask">
-            <span class="mascara"><span class="mascara-interna">Quem sou eu<span class="destaque-ponto">?</span></span></span>
-          </h2>
-        </header>
-
-        <div class="sobremim-grade">
-          <div class="sobremim-texto">
-            <p class="sobremim-lide" data-reveal="up">Apaixonado por tecnologia e conhecimento, criando experiências únicas.</p>
-            <p data-reveal="up" style="--delay:80ms">Desde a minha infância, fui movido pela curiosidade e pelo fascínio de descobrir como criar um site — curiosidade despertada pelo jogo que eu jogava. Ao longo do tempo, transformei essa paixão em uma carreira como desenvolvedor web.</p>
-            <p data-reveal="up" style="--delay:140ms">Cursei Análise e Desenvolvimento de Sistemas, o que me proporcionou uma base sólida na área em que eu queria atuar. Logo após minha formação, entrei no mercado de trabalho como desenvolvedor web, onde tenho a oportunidade de aplicar meus conhecimentos e aprender novas habilidades diariamente.</p>
-
-            <ol class="trajetoria" data-reveal-group>
-              <li class="trajetoria-item" data-reveal="up">
-                <span class="trajetoria-tipo">Tecnólogo</span>
-                <h3 class="trajetoria-titulo">Análise e Desenvolvimento de Sistemas</h3>
-                <p class="trajetoria-meta">UBC <span aria-hidden="true">·</span> 2021 – 2022</p>
-              </li>
-              <li class="trajetoria-item" data-reveal="up">
-                <span class="trajetoria-tipo">Desenvolvedor Web</span>
-                <h3 class="trajetoria-titulo">Phoenix</h3>
-                <p class="trajetoria-meta">2022 – 2023</p>
-              </li>
-            </ol>
-          </div>
-
-          <div class="sobremim-lateral">
-            <!-- Espaço para a foto: o arquivo atual (img/sobre mim/Minha foto.webp) é um placeholder cinza.
-                 Ao ter uma foto real, adicione <img class="perfil-foto" ...> dentro de .perfil. -->
-            <div class="perfil" data-reveal="clip" data-parallax-area>
-              <div class="perfil-monograma" aria-hidden="true">HL</div>
-              <ul class="perfil-tracos">
-                <li class="perfil-traco" data-profundidade="0.6">Criativo</li>
-                <li class="perfil-traco" data-profundidade="1">Curioso</li>
-                <li class="perfil-traco" data-profundidade="0.4">Persistente</li>
-                <li class="perfil-traco" data-profundidade="0.8">Versátil</li>
-              </ul>
-            </div>
-
-            <div class="competencias">
-              <h3 class="competencias-titulo" data-reveal="up">Competências</h3>
-              <ul class="competencias-lista" data-reveal-group>
-                <li data-reveal="up"><img src="img/competencias/HTML.png" alt="" width="24" height="24" loading="lazy">HTML</li>
-                <li data-reveal="up"><img src="img/competencias/CSS.png" alt="" width="24" height="24" loading="lazy">CSS</li>
-                <li data-reveal="up"><img src="img/competencias/JavaScript.png" alt="" width="24" height="24" loading="lazy">JavaScript</li>
-                <li data-reveal="up"><img src="img/competencias/WordPress.png" alt="" width="24" height="24" loading="lazy">WordPress</li>
-                <li data-reveal="up"><img src="img/competencias/MySQL.png" alt="" width="24" height="24" loading="lazy">MySQL</li>
-                <li data-reveal="up"><img src="img/competencias/GitHub.png" alt="" width="24" height="24" loading="lazy">GitHub</li>
-                <li data-reveal="up"><img src="img/competencias/UX.png" alt="" width="24" height="24" loading="lazy">UX Design</li>
-                <li data-reveal="up"><img src="img/competencias/UI.png" alt="" width="24" height="24" loading="lazy">UI Design</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DESENVOLVIMENTOS -->
-    <section class="secao projetos" id="desenvolvimentos" aria-labelledby="projetos-titulo">
-      <div class="container">
-        <header class="secao-cabecalho secao-cabecalho-dividido">
-          <div>
-            <p class="sobretitulo" data-reveal="draw"><span class="sobretitulo-indice">02</span>Projetos em destaque</p>
-            <h2 class="titulo-secao" id="projetos-titulo" data-reveal="mask">
-              <span class="mascara"><span class="mascara-interna">Desenvolvimentos<span class="destaque-ponto">.</span></span></span>
-            </h2>
-          </div>
-          <p class="secao-contagem" data-reveal="up" style="--delay:200ms"><span class="secao-contagem-numero">04</span> projetos</p>
-        </header>
-
-        <ol class="projetos-lista">
-          <li class="projeto" data-projeto>
-            <a class="projeto-midia" href="https://henriquelordelo.com/bikcraft" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-reveal="clip">
-              <img src="img/desenvolvimentos/Bikcraft-1000.webp" srcset="img/desenvolvimentos/Bikcraft-1000.webp 1000w, img/desenvolvimentos/Bikcraft.webp 2000w" sizes="(max-width: 900px) 100vw, 58vw" alt="" width="2000" height="1200" loading="lazy" decoding="async">
-              <video muted loop playsinline preload="none" data-src="img/desenvolvimentos/web/bikcraft.mp4"></video>
-              <span class="projeto-cursor" aria-hidden="true">Ver projeto</span>
-            </a>
-            <div class="projeto-info">
-              <span class="projeto-numero" aria-hidden="true">01</span>
-              <h3 class="projeto-titulo" data-reveal="mask"><span class="mascara"><span class="mascara-interna">Bikcraft</span></span></h3>
-              <p class="projeto-texto" data-reveal="up">Um projeto para bicicletas elétricas de alta precisão e qualidade, feitas sob medida para você. Explore o mundo na sua velocidade com a Bikcraft!</p>
-              <ul class="tags" data-reveal="up" style="--delay:80ms">
-                <li>HTML</li><li>CSS</li><li>JavaScript</li>
-              </ul>
-              <ul class="projeto-links" data-reveal="up" style="--delay:140ms">
-                <li><a class="link-seta" href="https://henriquelordelo.com/bikcraft" target="_blank" rel="noopener">Visualizar projeto<span class="sr-only"> Bikcraft (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-                <li><a class="link-seta link-secundario" href="https://github.com/HenriqueLordelo" target="_blank" rel="noopener">Ver no GitHub<span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="projeto" data-projeto>
-            <a class="projeto-midia" href="https://henriquelordelo.com/portfolio-inicial/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-reveal="clip">
-              <img src="img/desenvolvimentos/Portfolio-Inicial-1000.webp" srcset="img/desenvolvimentos/Portfolio-Inicial-1000.webp 1000w, img/desenvolvimentos/Portfolio-Inicial.webp 2000w" sizes="(max-width: 900px) 100vw, 58vw" alt="" width="2000" height="1200" loading="lazy" decoding="async">
-              <video muted loop playsinline preload="none" data-src="img/desenvolvimentos/web/portfolio-inicial.mp4"></video>
-              <span class="projeto-cursor" aria-hidden="true">Ver projeto</span>
-            </a>
-            <div class="projeto-info">
-              <span class="projeto-numero" aria-hidden="true">02</span>
-              <h3 class="projeto-titulo" data-reveal="mask"><span class="mascara"><span class="mascara-interna">Portfólio Inicial</span></span></h3>
-              <p class="projeto-texto" data-reveal="up">Portfólio desenvolvido quando eu estava aprendendo HTML e CSS — uma validação da minha linha de aprendizado. Este projeto foi o pontapé inicial para o desenvolvimento deste portfólio atual.</p>
-              <ul class="tags" data-reveal="up" style="--delay:80ms">
-                <li>HTML</li><li>CSS</li>
-              </ul>
-              <ul class="projeto-links" data-reveal="up" style="--delay:140ms">
-                <li><a class="link-seta" href="https://henriquelordelo.com/portfolio-inicial/" target="_blank" rel="noopener">Visualizar projeto<span class="sr-only"> Portfólio Inicial (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-                <li><a class="link-seta link-secundario" href="https://github.com/HenriqueLordelo" target="_blank" rel="noopener">Ver no GitHub<span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="projeto" data-projeto>
-            <a class="projeto-midia" href="https://elisamacedoodontologia.com.br/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-reveal="clip">
-              <img src="img/desenvolvimentos/Dra.-Elisa-Macedopng-1000.webp" srcset="img/desenvolvimentos/Dra.-Elisa-Macedopng-1000.webp 1000w, img/desenvolvimentos/Dra.-Elisa-Macedopng.webp 2000w" sizes="(max-width: 900px) 100vw, 58vw" alt="" width="2000" height="1200" loading="lazy" decoding="async">
-              <video muted loop playsinline preload="none" data-src="img/desenvolvimentos/web/elisa-macedo.mp4"></video>
-              <span class="projeto-cursor" aria-hidden="true">Ver projeto</span>
-            </a>
-            <div class="projeto-info">
-              <span class="projeto-numero" aria-hidden="true">03</span>
-              <h3 class="projeto-titulo" data-reveal="mask"><span class="mascara"><span class="mascara-interna">Dra. Elisa Macedo</span></span></h3>
-              <p class="projeto-texto" data-reveal="up">Site da Dra. Elisa Macedo, especialista em prótese dentária, cuja clínica odontológica realiza serviços como tratamento de DTM, aparelho ortodôntico e Invisalign.</p>
-              <ul class="tags" data-reveal="up" style="--delay:80ms">
-                <li>WordPress</li>
-              </ul>
-              <ul class="projeto-links" data-reveal="up" style="--delay:140ms">
-                <li><a class="link-seta" href="https://elisamacedoodontologia.com.br/" target="_blank" rel="noopener">Visualizar projeto<span class="sr-only"> Dra. Elisa Macedo (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-                <li><a class="link-seta link-secundario" href="https://github.com/HenriqueLordelo" target="_blank" rel="noopener">Ver no GitHub<span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="projeto" data-projeto>
-            <a class="projeto-midia" href="https://drguilhermevanzo.com.br/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-reveal="clip">
-              <img src="img/desenvolvimentos/Dr.-Guilherme-Vanzo-1000.webp" srcset="img/desenvolvimentos/Dr.-Guilherme-Vanzo-1000.webp 1000w, img/desenvolvimentos/Dr.-Guilherme-Vanzo.webp 2000w" sizes="(max-width: 900px) 100vw, 58vw" alt="" width="2000" height="1200" loading="lazy" decoding="async">
-              <video muted loop playsinline preload="none" data-src="img/desenvolvimentos/web/guilherme-vanzo.mp4"></video>
-              <span class="projeto-cursor" aria-hidden="true">Ver projeto</span>
-            </a>
-            <div class="projeto-info">
-              <span class="projeto-numero" aria-hidden="true">04</span>
-              <h3 class="projeto-titulo" data-reveal="mask"><span class="mascara"><span class="mascara-interna">Dr. Guilherme Vanzo</span></span></h3>
-              <p class="projeto-texto" data-reveal="up">Site do Dr. Guilherme Vanzo, cirurgião bucomaxilofacial. Novamente, um projeto para um especialista em odontologia.</p>
-              <ul class="tags" data-reveal="up" style="--delay:80ms">
-                <li>WordPress</li>
-              </ul>
-              <ul class="projeto-links" data-reveal="up" style="--delay:140ms">
-                <li><a class="link-seta" href="https://drguilhermevanzo.com.br/" target="_blank" rel="noopener">Visualizar projeto<span class="sr-only"> Dr. Guilherme Vanzo (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-                <li><a class="link-seta link-secundario" href="https://github.com/HenriqueLordelo" target="_blank" rel="noopener">Ver no GitHub<span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- PORTFÓLIO: GUIA DE ESTILO -->
-    <section class="secao estilo" id="portfolio" aria-labelledby="portfolio-titulo">
-      <div class="container">
-        <header class="secao-cabecalho">
-          <p class="sobretitulo" data-reveal="draw"><span class="sobretitulo-indice">03</span>Curiosidades do meu portfólio</p>
-          <h2 class="titulo-secao" id="portfolio-titulo" data-reveal="mask">
-            <span class="mascara"><span class="mascara-interna">Portfólio<span class="destaque-ponto">.</span></span></span>
-          </h2>
-        </header>
-
-        <!-- Tipografias -->
-        <div class="tipos">
-          <div class="tipos-intro">
-            <h3 class="subtitulo-guia" data-reveal="up">Tipografias utilizadas</h3>
-            <p class="tipos-aa" aria-hidden="true" data-reveal="scale">
-              <span class="tipos-aa-poppins">A</span><span class="tipos-aa-roboto">a</span>
-            </p>
-          </div>
-
-          <div class="tipos-especimes">
-            <article class="especime especime-poppins" data-reveal="up">
-              <header class="especime-cabecalho">
-                <h4 class="especime-nome">Poppins</h4>
-                <span class="especime-uso">Títulos</span>
-              </header>
-              <ul class="especime-pesos">
-                <li style="--peso:400"><span class="especime-peso">400</span><span class="especime-amostra">Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span></li>
-                <li style="--peso:500"><span class="especime-peso">500</span><span class="especime-amostra">Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span></li>
-                <li style="--peso:600"><span class="especime-peso">600</span><span class="especime-amostra">Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span></li>
-              </ul>
-              <p class="especime-texto">Sua aparência amigável e contemporânea faz com que seja amplamente utilizada em diversos tipos de trabalhos, desde sites modernos até materiais promocionais e editoriais.</p>
-            </article>
-
-            <article class="especime especime-roboto" data-reveal="up" style="--delay:120ms">
-              <header class="especime-cabecalho">
-                <h4 class="especime-nome">Roboto</h4>
-                <span class="especime-uso">Textos</span>
-              </header>
-              <ul class="especime-pesos">
-                <li style="--peso:400"><span class="especime-peso">400</span><span class="especime-amostra">Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span></li>
-                <li style="--peso:500"><span class="especime-peso">500</span><span class="especime-amostra">Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span></li>
-              </ul>
-              <p class="especime-texto">Sua legibilidade e clareza a tornam uma escolha popular para aplicativos, websites e materiais impressos, sendo frequentemente utilizada em projetos que buscam um design limpo.</p>
-            </article>
-          </div>
-        </div>
-
-        <!-- Paleta de cores -->
-        <div class="paleta">
-          <div class="paleta-intro">
-            <h3 class="subtitulo-guia" data-reveal="up">Paleta de cores</h3>
-            <p class="paleta-dica" data-reveal="up" style="--delay:80ms">Clique em uma cor para copiar o código.</p>
-          </div>
-          <ul class="paleta-lista" data-reveal-group>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#b40000" data-copiar="#B40000"><span>#B40000</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:linear-gradient(180deg,#db0000 0%,#b40909 100%)" data-copiar="linear-gradient(180deg, #db0000 0%, #b40909 100%)"><span>Linear V2</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:linear-gradient(180deg,#db0000 0%,#a81111 100%)" data-copiar="linear-gradient(180deg, #db0000 0%, #a81111 100%)"><span>Linear V3</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#f58000" data-copiar="#F58000"><span>#F58000</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#f56b00" data-copiar="#F56B00"><span>#F56B00</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#0f8208" data-copiar="#0F8208"><span>#0F8208</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#000000" data-copiar="#000000"><span>#000000</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#121212" data-copiar="#121212"><span>#121212</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#141414" data-copiar="#141414"><span>#141414</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#2e2e2e" data-copiar="#2E2E2E"><span>#2E2E2E</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#404040" data-copiar="#404040"><span>#404040</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#595959" data-copiar="#595959"><span>#595959</span></button></li>
-            <li data-reveal="rise"><button class="cor" type="button" style="--c:#707070" data-copiar="#707070"><span>#707070</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#9c9c9c" data-copiar="#9C9C9C"><span>#9C9C9C</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#b3b3b3" data-copiar="#B3B3B3"><span>#B3B3B3</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#cccccc" data-copiar="#CCCCCC"><span>#CCCCCC</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#dedede" data-copiar="#DEDEDE"><span>#DEDEDE</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#ededed" data-copiar="#EDEDED"><span>#EDEDED</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#f7f7f7" data-copiar="#F7F7F7"><span>#F7F7F7</span></button></li>
-            <li data-reveal="rise"><button class="cor cor-clara" type="button" style="--c:#ffffff" data-copiar="#FFFFFF"><span>#FFFFFF</span></button></li>
-          </ul>
-          <p class="sr-only" role="status" aria-live="polite" data-copiar-status></p>
-        </div>
-
-        <!-- Espaçamentos -->
-        <div class="espacos">
-          <h3 class="subtitulo-guia" data-reveal="up">Espaços — múltiplos de 4</h3>
-          <ul class="espacos-lista" data-reveal-group>
-            <li data-reveal="grow" style="--e:4"><span class="espacos-barra"></span><span class="espacos-valor">004</span></li>
-            <li data-reveal="grow" style="--e:8"><span class="espacos-barra"></span><span class="espacos-valor">008</span></li>
-            <li data-reveal="grow" style="--e:12"><span class="espacos-barra"></span><span class="espacos-valor">012</span></li>
-            <li data-reveal="grow" style="--e:16"><span class="espacos-barra"></span><span class="espacos-valor">016</span></li>
-            <li data-reveal="grow" style="--e:20"><span class="espacos-barra"></span><span class="espacos-valor">020</span></li>
-            <li data-reveal="grow" style="--e:24"><span class="espacos-barra"></span><span class="espacos-valor">024</span></li>
-            <li data-reveal="grow" style="--e:32"><span class="espacos-barra"></span><span class="espacos-valor">032</span></li>
-            <li data-reveal="grow" style="--e:36"><span class="espacos-barra"></span><span class="espacos-valor">036</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVOLUÇÃO CRIATIVA -->
-    <section class="secao evolucao" aria-labelledby="evolucao-titulo">
-      <div class="container evolucao-grade">
-        <div class="camadas" aria-hidden="true" data-reveal="layers">
-          <div class="camada camada-1"><span>Wireframe</span></div>
-          <div class="camada camada-2"><span>Protótipo</span></div>
-          <div class="camada camada-3"><span>Código</span></div>
-        </div>
-
-        <div class="evolucao-info">
-          <h2 class="titulo-medio" id="evolucao-titulo" data-reveal="mask">
-            <span class="mascara"><span class="mascara-interna">Evolução criativa</span></span>
-          </h2>
-          <p class="evolucao-texto" data-reveal="up">Mostro algumas etapas do projeto e o que priorizei no meu portfólio: do wireframe ao protótipo final e à codificação. Projeto desenvolvido com Figma, HTML, CSS e JavaScript. Portfólio em constante evolução!</p>
-
-          <ul class="qualidades" data-reveal-group>
-            <li class="qualidade" data-reveal="up">
-              <svg class="qualidade-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 9v11" /></svg>
-              <div>
-                <h3 class="qualidade-titulo">Interface do Usuário</h3>
-                <p>Em cada projeto, um desafio. Em cada desafio, uma solução brilhante.</p>
-              </div>
-            </li>
-            <li class="qualidade" data-reveal="up">
-              <svg class="qualidade-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="14" height="10" rx="1.5" /><rect x="17" y="8" width="5" height="11" rx="1" /><path d="M6 19h6" /></svg>
-              <div>
-                <h3 class="qualidade-titulo">Versatilidade Web</h3>
-                <p>Desde a criação de sites simples e elegantes a sistemas mais complexos.</p>
-              </div>
-            </li>
-            <li class="qualidade" data-reveal="up">
-              <svg class="qualidade-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z" /></svg>
-              <div>
-                <h3 class="qualidade-titulo">Soluções Inovadoras</h3>
-                <p>Transformar ideias em projetos funcionais e intuitivos.</p>
-              </div>
-            </li>
-            <li class="qualidade" data-reveal="up">
-              <svg class="qualidade-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" /></svg>
-              <div>
-                <h3 class="qualidade-titulo">Experiência do Usuário</h3>
-                <p>Atenção aos detalhes e experiência amigável.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section class="secao contato" id="contato" aria-labelledby="contato-titulo">
-      <div class="contato-fundo" aria-hidden="true" data-reveal="fade"></div>
-      <div class="container">
-        <header class="secao-cabecalho">
-          <p class="sobretitulo" data-reveal="draw"><span class="sobretitulo-indice">04</span>Vamos conectar ideias e oportunidades</p>
-          <h2 class="titulo-secao" id="contato-titulo" data-reveal="mask">
-            <span class="mascara"><span class="mascara-interna">Contato<span class="destaque-ponto">.</span></span></span>
-          </h2>
-        </header>
-
-        <div class="contato-grade">
-          <div class="contato-cartao" data-reveal="up">
-            <h3 class="contato-cartao-titulo">Gostou dos meus projetos?</h3>
-            <p class="contato-cartao-texto">Entre em contato comigo pelas redes sociais ou deixe uma mensagem.</p>
-
-            <!-- Sem backend: o formulário abre o WhatsApp com a mensagem preenchida (wa.me aceita ?text=). -->
-            <form class="contato-form" action="https://wa.me/5511974753161" method="get" target="_blank" data-contato-form>
-              <label class="contato-rotulo" for="mensagem">Sua mensagem</label>
-              <textarea id="mensagem" name="text" rows="4" required placeholder="Deixe sua mensagem..." aria-describedby="mensagem-dica"></textarea>
-              <p class="contato-dica" id="mensagem-dica">A mensagem será enviada pelo WhatsApp, em uma nova aba.</p>
-              <button class="botao" type="submit">
-                <span class="botao-texto">Enviar</span>
-                <svg class="botao-seta" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg>
-              </button>
-            </form>
-          </div>
-
-          <ul class="contato-redes" data-reveal-group>
-            <li data-reveal="up"><a href="https://www.linkedin.com/in/henrique-lordelo" target="_blank" rel="noopener"><span class="contato-rede-nome">LinkedIn</span><span class="contato-rede-handle">/in/henrique-lordelo</span><span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-            <li data-reveal="up"><a href="https://github.com/HenriqueLordelo" target="_blank" rel="noopener"><span class="contato-rede-nome">GitHub</span><span class="contato-rede-handle">@HenriqueLordelo</span><span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-            <li data-reveal="up"><a href="https://www.instagram.com/rickzsz/" target="_blank" rel="noopener"><span class="contato-rede-nome">Instagram</span><span class="contato-rede-handle">@rickzsz</span><span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-            <li data-reveal="up"><a href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es." target="_blank" rel="noopener"><span class="contato-rede-nome">WhatsApp</span><span class="contato-rede-handle">Conversar agora</span><span class="sr-only"> (abre em nova aba)</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M5 3h8v8" /></svg></a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-topo">
-        <a class="logo" href="#topo" aria-label="Henrique Lordêlo — voltar ao início">
-          <svg class="logo-marca" viewBox="0 0 13 23" aria-hidden="true" focusable="false"><path d="M4.688 19.448H12.048V23H0.208V0.664H4.688V19.448Z" fill="url(#logo-gradiente)" /></svg>
+    <header class="header" data-header>
+      <div class="header-interno container">
+        <a
+          class="logo"
+          href="#topo"
+          aria-label="Henrique Lordêlo — voltar ao início"
+        >
+          <svg
+            class="logo-marca"
+            viewBox="0 0 13 23"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <defs>
+              <linearGradient
+                id="logo-gradiente"
+                x1="5.5"
+                y1="-4"
+                x2="5.5"
+                y2="28"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#DB0000" />
+                <stop offset="1" stop-color="#B40909" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M4.688 19.448H12.048V23H0.208V0.664H4.688V19.448Z"
+              fill="url(#logo-gradiente)"
+            />
+          </svg>
           <span class="logo-texto">Henrique Lordêlo</span>
         </a>
-        <nav aria-label="Rodapé">
-          <ul class="footer-menu">
-            <li><a href="#quemsou">Quem Sou</a></li>
-            <li><a href="#desenvolvimentos">Desenvolvimentos</a></li>
-            <li><a href="#portfolio">Portfólio</a></li>
-            <li><a href="#contato">Contato</a></li>
+
+        <nav class="nav" id="nav" aria-label="Principal">
+          <button
+            class="nav-botao"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            data-menu-botao
+          >
+            <span class="sr-only" data-menu-rotulo>Abrir menu</span>
+            <span class="nav-botao-linhas" aria-hidden="true"></span>
+          </button>
+          <ul class="nav-menu" id="nav-menu">
+            <li>
+              <a href="#quemsou"
+                ><span class="nav-indice" aria-hidden="true">01</span>Quem
+                Sou</a
+              >
+            </li>
+            <li>
+              <a href="#desenvolvimentos"
+                ><span class="nav-indice" aria-hidden="true">02</span
+                >Desenvolvimentos</a
+              >
+            </li>
+            <li>
+              <a href="#portfolio"
+                ><span class="nav-indice" aria-hidden="true">03</span
+                >Portfólio</a
+              >
+            </li>
+            <li>
+              <a href="#contato"
+                ><span class="nav-indice" aria-hidden="true">04</span>Contato</a
+              >
+            </li>
           </ul>
         </nav>
-        <ul class="footer-redes">
-          <li><a href="https://www.linkedin.com/in/henrique-lordelo" target="_blank" rel="noopener" aria-label="LinkedIn (abre em nova aba)"><img src="img/rodape/LinkedIn.png" alt="" width="18" height="18" loading="lazy"></a></li>
-          <li><a href="https://github.com/HenriqueLordelo" target="_blank" rel="noopener" aria-label="GitHub (abre em nova aba)"><img src="img/rodape/GitHub.png" alt="" width="18" height="18" loading="lazy"></a></li>
-          <li><a href="https://www.instagram.com/rickzsz/" target="_blank" rel="noopener" aria-label="Instagram (abre em nova aba)"><img src="img/rodape/Instagram.png" alt="" width="18" height="18" loading="lazy"></a></li>
-          <li><a href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="WhatsApp (abre em nova aba)"><img src="img/rodape/WhatsApp.png" alt="" width="18" height="18" loading="lazy"></a></li>
-        </ul>
-      </div>
-      <div class="footer-base">
-        <p>© 2023–<span data-ano>2026</span> Henrique Lordêlo. Todos os direitos reservados.</p>
-        <a class="footer-topo-link" href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
-      </div>
-    </div>
-  </footer>
-</body>
 
+        <a class="botao botao-pequeno header-cta" href="#desenvolvimentos">
+          <span class="botao-texto">Conhecer projetos</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-titulo" data-hero>
+        <div class="hero-fundo" aria-hidden="true">
+          <div class="hero-grade"></div>
+          <div class="hero-brilho" data-hero-brilho></div>
+        </div>
+
+        <div class="hero-interno container">
+          <p class="hero-sobretitulo">
+            <span class="ponto-status" aria-hidden="true"></span>
+            <span class="hero-sobretitulo-texto"
+              >Portfólio <span class="hero-ano">2023 — hoje</span></span
+            >
+          </p>
+
+          <h1 class="hero-titulo" id="hero-titulo">
+            <span class="hero-nome">
+              <span class="hero-linha"
+                ><span class="hero-linha-interna" style="--l: 0"
+                  >Henrique</span
+                ></span
+              >
+              <span class="hero-linha"
+                ><span class="hero-linha-interna" style="--l: 1"
+                  >Lordêlo<span class="destaque-ponto">.</span></span
+                ></span
+              >
+            </span>
+            <span class="hero-papel">
+              <span class="hero-palavra" style="--w: 0">Desenvolvedor</span>
+              <span class="hero-palavra" style="--w: 1">Front-end</span>
+              <span class="hero-palavra hero-e" style="--w: 2">&amp;</span>
+              <span class="hero-palavra" style="--w: 3">UX/UI</span>
+              <span class="hero-palavra" style="--w: 4">Designer</span>
+            </span>
+          </h1>
+
+          <div class="hero-rodape">
+            <span class="hero-regua" aria-hidden="true"></span>
+            <p class="hero-texto">
+              Se você procura um profissional comprometido, criativo e que ama o
+              que faz, estou pronto para embarcar nessa jornada com você!
+            </p>
+            <div class="hero-acoes">
+              <a
+                class="botao"
+                href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es."
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="botao-texto">Entre em contato</span>
+                <svg
+                  class="botao-seta"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M3 13 13 3M5 3h8v8" />
+                </svg>
+                <span class="sr-only">(abre o WhatsApp em nova aba)</span>
+              </a>
+              <a class="botao botao-contorno" href="#desenvolvimentos">
+                <span class="botao-texto">Conhecer projetos</span>
+                <svg
+                  class="botao-seta botao-seta-baixo"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M8 2v12M3 9l5 5 5-5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <ul class="hero-redes">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/henrique-lordelo"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn (abre em nova aba)"
+                ><img
+                  src="img/redes%20sociais/LinkedIn.png"
+                  alt=""
+                  width="20"
+                  height="20"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/HenriqueLordelo"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub (abre em nova aba)"
+                ><img
+                  src="img/redes%20sociais/GitHub.png"
+                  alt=""
+                  width="20"
+                  height="20"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/rickzsz/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram (abre em nova aba)"
+                ><img
+                  src="img/redes%20sociais/Instagram.png"
+                  alt=""
+                  width="20"
+                  height="20"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es."
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp (abre em nova aba)"
+                ><img
+                  src="img/redes%20sociais/WhatsApp.png"
+                  alt=""
+                  width="20"
+                  height="20"
+              /></a>
+            </li>
+          </ul>
+
+          <a class="hero-rolar" href="#quemsou">
+            <span class="hero-rolar-linha" aria-hidden="true"></span>
+            <span>Rolar</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- FAIXA DE PALAVRAS (decorativa: as palavras-tema que antes ficavam nas laterais) -->
+      <div class="faixa" aria-hidden="true" data-faixa>
+        <div class="faixa-trilho">
+          <ul class="faixa-lista">
+            <li>Criatividade</li>
+            <li>Inovação</li>
+            <li>Versatilidade</li>
+            <li>Evolução</li>
+            <li>Singularidade</li>
+            <li>Estilo</li>
+            <li>Transformação</li>
+            <li>Acessível</li>
+          </ul>
+          <ul class="faixa-lista">
+            <li>Criatividade</li>
+            <li>Inovação</li>
+            <li>Versatilidade</li>
+            <li>Evolução</li>
+            <li>Singularidade</li>
+            <li>Estilo</li>
+            <li>Transformação</li>
+            <li>Acessível</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SOBRE MIM -->
+      <section
+        class="secao sobremim"
+        id="quemsou"
+        aria-labelledby="sobremim-titulo"
+      >
+        <div class="container">
+          <header class="secao-cabecalho">
+            <p class="sobretitulo" data-reveal="draw">
+              <span class="sobretitulo-indice">01</span>Sobre mim
+            </p>
+            <h2 class="titulo-secao" id="sobremim-titulo" data-reveal="mask">
+              <span class="mascara"
+                ><span class="mascara-interna"
+                  >Quem sou eu<span class="destaque-ponto">?</span></span
+                ></span
+              >
+            </h2>
+          </header>
+
+          <div class="sobremim-grade">
+            <div class="sobremim-texto">
+              <p class="sobremim-lide" data-reveal="up">
+                Apaixonado por tecnologia e conhecimento, criando experiências
+                únicas.
+              </p>
+              <p data-reveal="up" style="--delay: 80ms">
+                Desde a minha infância, fui movido pela curiosidade e pelo
+                fascínio de descobrir como criar um site — curiosidade
+                despertada pelo jogo que eu jogava. Ao longo do tempo,
+                transformei essa paixão em uma carreira como desenvolvedor web.
+              </p>
+              <p data-reveal="up" style="--delay: 140ms">
+                Cursei Análise e Desenvolvimento de Sistemas, o que me
+                proporcionou uma base sólida na área em que eu queria atuar.
+                Logo após minha formação, entrei no mercado de trabalho como
+                desenvolvedor web, onde tenho a oportunidade de aplicar meus
+                conhecimentos e aprender novas habilidades diariamente.
+              </p>
+
+              <ol class="trajetoria" data-reveal-group>
+                <li class="trajetoria-item" data-reveal="up">
+                  <span class="trajetoria-tipo">Tecnólogo</span>
+                  <h3 class="trajetoria-titulo">
+                    Análise e Desenvolvimento de Sistemas
+                  </h3>
+                  <p class="trajetoria-meta">
+                    UBC <span aria-hidden="true">·</span> 2021 – 2022
+                  </p>
+                </li>
+                <li class="trajetoria-item" data-reveal="up">
+                  <span class="trajetoria-tipo">Desenvolvedor Web</span>
+                  <h3 class="trajetoria-titulo">Phoenix</h3>
+                  <p class="trajetoria-meta">2022 – 2023</p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="sobremim-lateral">
+              <!-- Espaço para a foto: o arquivo atual (img/sobre mim/Minha foto.webp) é um placeholder cinza.
+                 Ao ter uma foto real, adicione <img class="perfil-foto" ...> dentro de .perfil. -->
+              <div class="perfil" data-reveal="clip" data-parallax-area>
+                <div class="perfil-monograma" aria-hidden="true">HL</div>
+                <ul class="perfil-tracos">
+                  <li class="perfil-traco" data-profundidade="0.6">Criativo</li>
+                  <li class="perfil-traco" data-profundidade="1">Curioso</li>
+                  <li class="perfil-traco" data-profundidade="0.4">
+                    Persistente
+                  </li>
+                  <li class="perfil-traco" data-profundidade="0.8">Versátil</li>
+                </ul>
+              </div>
+
+              <div class="competencias">
+                <h3 class="competencias-titulo" data-reveal="up">
+                  Competências
+                </h3>
+                <ul class="competencias-lista" data-reveal-group>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/HTML.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />HTML
+                  </li>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/CSS.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />CSS
+                  </li>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/JavaScript.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />JavaScript
+                  </li>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/WordPress.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />WordPress
+                  </li>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/MySQL.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />MySQL
+                  </li>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/GitHub.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />GitHub
+                  </li>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/UX.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />UX Design
+                  </li>
+                  <li data-reveal="up">
+                    <img
+                      src="img/competencias/UI.png"
+                      alt=""
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    />UI Design
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESENVOLVIMENTOS -->
+      <section
+        class="secao projetos"
+        id="desenvolvimentos"
+        aria-labelledby="projetos-titulo"
+      >
+        <div class="container">
+          <header class="secao-cabecalho secao-cabecalho-dividido">
+            <div>
+              <p class="sobretitulo" data-reveal="draw">
+                <span class="sobretitulo-indice">02</span>Projetos em destaque
+              </p>
+              <h2 class="titulo-secao" id="projetos-titulo" data-reveal="mask">
+                <span class="mascara"
+                  ><span class="mascara-interna"
+                    >Desenvolvimentos<span class="destaque-ponto">.</span></span
+                  ></span
+                >
+              </h2>
+            </div>
+            <p class="secao-contagem" data-reveal="up" style="--delay: 200ms">
+              <span class="secao-contagem-numero">04</span> projetos
+            </p>
+          </header>
+
+          <ol class="projetos-lista">
+            <li class="projeto" data-projeto>
+              <a
+                class="projeto-midia"
+                href="https://henriquelordelo.com/bikcraft"
+                target="_blank"
+                rel="noopener"
+                tabindex="-1"
+                aria-hidden="true"
+                data-reveal="clip"
+              >
+                <img
+                  src="img/desenvolvimentos/Bikcraft-1000.webp"
+                  srcset="
+                    img/desenvolvimentos/Bikcraft-1000.webp 1000w,
+                    img/desenvolvimentos/Bikcraft.webp      2000w
+                  "
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  alt=""
+                  width="2000"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="img/desenvolvimentos/web/bikcraft.mp4"
+                ></video>
+                <span class="projeto-cursor" aria-hidden="true"
+                  >Ver projeto</span
+                >
+              </a>
+              <div class="projeto-info">
+                <span class="projeto-numero" aria-hidden="true">01</span>
+                <h3 class="projeto-titulo" data-reveal="mask">
+                  <span class="mascara"
+                    ><span class="mascara-interna">Bikcraft</span></span
+                  >
+                </h3>
+                <p class="projeto-texto" data-reveal="up">
+                  Um projeto para bicicletas elétricas de alta precisão e
+                  qualidade, feitas sob medida para você. Explore o mundo na sua
+                  velocidade com a Bikcraft!
+                </p>
+                <ul class="tags" data-reveal="up" style="--delay: 80ms">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <ul
+                  class="projeto-links"
+                  data-reveal="up"
+                  style="--delay: 140ms"
+                >
+                  <li>
+                    <a
+                      class="link-seta"
+                      href="https://henriquelordelo.com/bikcraft"
+                      target="_blank"
+                      rel="noopener"
+                      >Visualizar projeto<span class="sr-only">
+                        Bikcraft (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      class="link-seta link-secundario"
+                      href="https://github.com/HenriqueLordelo"
+                      target="_blank"
+                      rel="noopener"
+                      >Ver no GitHub<span class="sr-only">
+                        (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="projeto" data-projeto>
+              <a
+                class="projeto-midia"
+                href="https://henriquelordelo.com/portfolio-inicial/"
+                target="_blank"
+                rel="noopener"
+                tabindex="-1"
+                aria-hidden="true"
+                data-reveal="clip"
+              >
+                <img
+                  src="img/desenvolvimentos/Portfolio-Inicial-1000.webp"
+                  srcset="
+                    img/desenvolvimentos/Portfolio-Inicial-1000.webp 1000w,
+                    img/desenvolvimentos/Portfolio-Inicial.webp      2000w
+                  "
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  alt=""
+                  width="2000"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="img/desenvolvimentos/web/portfolio-inicial.mp4"
+                ></video>
+                <span class="projeto-cursor" aria-hidden="true"
+                  >Ver projeto</span
+                >
+              </a>
+              <div class="projeto-info">
+                <span class="projeto-numero" aria-hidden="true">02</span>
+                <h3 class="projeto-titulo" data-reveal="mask">
+                  <span class="mascara"
+                    ><span class="mascara-interna"
+                      >Portfólio Inicial</span
+                    ></span
+                  >
+                </h3>
+                <p class="projeto-texto" data-reveal="up">
+                  Portfólio desenvolvido quando eu estava aprendendo HTML e CSS
+                  — uma validação da minha linha de aprendizado. Este projeto
+                  foi o pontapé inicial para o desenvolvimento deste portfólio
+                  atual.
+                </p>
+                <ul class="tags" data-reveal="up" style="--delay: 80ms">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                </ul>
+                <ul
+                  class="projeto-links"
+                  data-reveal="up"
+                  style="--delay: 140ms"
+                >
+                  <li>
+                    <a
+                      class="link-seta"
+                      href="https://henriquelordelo.com/portfolio-inicial/"
+                      target="_blank"
+                      rel="noopener"
+                      >Visualizar projeto<span class="sr-only">
+                        Portfólio Inicial (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      class="link-seta link-secundario"
+                      href="https://github.com/HenriqueLordelo"
+                      target="_blank"
+                      rel="noopener"
+                      >Ver no GitHub<span class="sr-only">
+                        (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="projeto" data-projeto>
+              <a
+                class="projeto-midia"
+                href="https://elisamacedoodontologia.com.br/"
+                target="_blank"
+                rel="noopener"
+                tabindex="-1"
+                aria-hidden="true"
+                data-reveal="clip"
+              >
+                <img
+                  src="img/desenvolvimentos/Dra.-Elisa-Macedopng-1000.webp"
+                  srcset="
+                    img/desenvolvimentos/Dra.-Elisa-Macedopng-1000.webp 1000w,
+                    img/desenvolvimentos/Dra.-Elisa-Macedopng.webp      2000w
+                  "
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  alt=""
+                  width="2000"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="img/desenvolvimentos/web/elisa-macedo.mp4"
+                ></video>
+                <span class="projeto-cursor" aria-hidden="true"
+                  >Ver projeto</span
+                >
+              </a>
+              <div class="projeto-info">
+                <span class="projeto-numero" aria-hidden="true">03</span>
+                <h3 class="projeto-titulo" data-reveal="mask">
+                  <span class="mascara"
+                    ><span class="mascara-interna"
+                      >Dra. Elisa Macedo</span
+                    ></span
+                  >
+                </h3>
+                <p class="projeto-texto" data-reveal="up">
+                  Site da Dra. Elisa Macedo, especialista em prótese dentária,
+                  cuja clínica odontológica realiza serviços como tratamento de
+                  DTM, aparelho ortodôntico e Invisalign.
+                </p>
+                <ul class="tags" data-reveal="up" style="--delay: 80ms">
+                  <li>WordPress</li>
+                </ul>
+                <ul
+                  class="projeto-links"
+                  data-reveal="up"
+                  style="--delay: 140ms"
+                >
+                  <li>
+                    <a
+                      class="link-seta"
+                      href="https://elisamacedoodontologia.com.br/"
+                      target="_blank"
+                      rel="noopener"
+                      >Visualizar projeto<span class="sr-only">
+                        Dra. Elisa Macedo (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      class="link-seta link-secundario"
+                      href="https://github.com/HenriqueLordelo"
+                      target="_blank"
+                      rel="noopener"
+                      >Ver no GitHub<span class="sr-only">
+                        (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="projeto" data-projeto>
+              <a
+                class="projeto-midia"
+                href="https://drguilhermevanzo.com.br/"
+                target="_blank"
+                rel="noopener"
+                tabindex="-1"
+                aria-hidden="true"
+                data-reveal="clip"
+              >
+                <img
+                  src="img/desenvolvimentos/Dr.-Guilherme-Vanzo-1000.webp"
+                  srcset="
+                    img/desenvolvimentos/Dr.-Guilherme-Vanzo-1000.webp 1000w,
+                    img/desenvolvimentos/Dr.-Guilherme-Vanzo.webp      2000w
+                  "
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  alt=""
+                  width="2000"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="img/desenvolvimentos/web/guilherme-vanzo.mp4"
+                ></video>
+                <span class="projeto-cursor" aria-hidden="true"
+                  >Ver projeto</span
+                >
+              </a>
+              <div class="projeto-info">
+                <span class="projeto-numero" aria-hidden="true">04</span>
+                <h3 class="projeto-titulo" data-reveal="mask">
+                  <span class="mascara"
+                    ><span class="mascara-interna"
+                      >Dr. Guilherme Vanzo</span
+                    ></span
+                  >
+                </h3>
+                <p class="projeto-texto" data-reveal="up">
+                  Site do Dr. Guilherme Vanzo, cirurgião bucomaxilofacial.
+                  Novamente, um projeto para um especialista em odontologia.
+                </p>
+                <ul class="tags" data-reveal="up" style="--delay: 80ms">
+                  <li>WordPress</li>
+                </ul>
+                <ul
+                  class="projeto-links"
+                  data-reveal="up"
+                  style="--delay: 140ms"
+                >
+                  <li>
+                    <a
+                      class="link-seta"
+                      href="https://drguilhermevanzo.com.br/"
+                      target="_blank"
+                      rel="noopener"
+                      >Visualizar projeto<span class="sr-only">
+                        Dr. Guilherme Vanzo (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      class="link-seta link-secundario"
+                      href="https://github.com/HenriqueLordelo"
+                      target="_blank"
+                      rel="noopener"
+                      >Ver no GitHub<span class="sr-only">
+                        (abre em nova aba)</span
+                      ><svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 13 13 3M5 3h8v8" /></svg
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- PORTFÓLIO: GUIA DE ESTILO -->
+      <section
+        class="secao estilo"
+        id="portfolio"
+        aria-labelledby="portfolio-titulo"
+      >
+        <div class="container">
+          <header class="secao-cabecalho">
+            <p class="sobretitulo" data-reveal="draw">
+              <span class="sobretitulo-indice">03</span>Curiosidades do meu
+              portfólio
+            </p>
+            <h2 class="titulo-secao" id="portfolio-titulo" data-reveal="mask">
+              <span class="mascara"
+                ><span class="mascara-interna"
+                  >Portfólio<span class="destaque-ponto">.</span></span
+                ></span
+              >
+            </h2>
+          </header>
+
+          <!-- Tipografias -->
+          <div class="tipos">
+            <div class="tipos-intro">
+              <h3 class="subtitulo-guia" data-reveal="up">
+                Tipografias utilizadas
+              </h3>
+              <p class="tipos-aa" aria-hidden="true" data-reveal="scale">
+                <span class="tipos-aa-poppins">A</span
+                ><span class="tipos-aa-roboto">a</span>
+              </p>
+            </div>
+
+            <div class="tipos-especimes">
+              <article class="especime especime-poppins" data-reveal="up">
+                <header class="especime-cabecalho">
+                  <h4 class="especime-nome">Poppins</h4>
+                  <span class="especime-uso">Títulos</span>
+                </header>
+                <ul class="especime-pesos">
+                  <li style="--peso: 400">
+                    <span class="especime-peso">400</span
+                    ><span class="especime-amostra"
+                      >Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span
+                    >
+                  </li>
+                  <li style="--peso: 500">
+                    <span class="especime-peso">500</span
+                    ><span class="especime-amostra"
+                      >Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span
+                    >
+                  </li>
+                  <li style="--peso: 600">
+                    <span class="especime-peso">600</span
+                    ><span class="especime-amostra"
+                      >Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span
+                    >
+                  </li>
+                </ul>
+                <p class="especime-texto">
+                  Sua aparência amigável e contemporânea faz com que seja
+                  amplamente utilizada em diversos tipos de trabalhos, desde
+                  sites modernos até materiais promocionais e editoriais.
+                </p>
+              </article>
+
+              <article
+                class="especime especime-roboto"
+                data-reveal="up"
+                style="--delay: 120ms"
+              >
+                <header class="especime-cabecalho">
+                  <h4 class="especime-nome">Roboto</h4>
+                  <span class="especime-uso">Textos</span>
+                </header>
+                <ul class="especime-pesos">
+                  <li style="--peso: 400">
+                    <span class="especime-peso">400</span
+                    ><span class="especime-amostra"
+                      >Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span
+                    >
+                  </li>
+                  <li style="--peso: 500">
+                    <span class="especime-peso">500</span
+                    ><span class="especime-amostra"
+                      >Aa Bb Cc Dd Ee Ff Gg Hh 1 2 3 4 7</span
+                    >
+                  </li>
+                </ul>
+                <p class="especime-texto">
+                  Sua legibilidade e clareza a tornam uma escolha popular para
+                  aplicativos, websites e materiais impressos, sendo
+                  frequentemente utilizada em projetos que buscam um design
+                  limpo.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <!-- Paleta de cores -->
+          <div class="paleta">
+            <div class="paleta-intro">
+              <h3 class="subtitulo-guia" data-reveal="up">Paleta de cores</h3>
+              <p class="paleta-dica" data-reveal="up" style="--delay: 80ms">
+                Clique em uma cor para copiar o código.
+              </p>
+            </div>
+            <ul class="paleta-lista" data-reveal-group>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #b40000"
+                  data-copiar="#B40000"
+                >
+                  <span>#B40000</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: linear-gradient(180deg, #db0000 0%, #b40909 100%)"
+                  data-copiar="linear-gradient(180deg, #db0000 0%, #b40909 100%)"
+                >
+                  <span>Linear V2</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: linear-gradient(180deg, #db0000 0%, #a81111 100%)"
+                  data-copiar="linear-gradient(180deg, #db0000 0%, #a81111 100%)"
+                >
+                  <span>Linear V3</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #f58000"
+                  data-copiar="#F58000"
+                >
+                  <span>#F58000</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #f56b00"
+                  data-copiar="#F56B00"
+                >
+                  <span>#F56B00</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #0f8208"
+                  data-copiar="#0F8208"
+                >
+                  <span>#0F8208</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #000000"
+                  data-copiar="#000000"
+                >
+                  <span>#000000</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #121212"
+                  data-copiar="#121212"
+                >
+                  <span>#121212</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #141414"
+                  data-copiar="#141414"
+                >
+                  <span>#141414</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #2e2e2e"
+                  data-copiar="#2E2E2E"
+                >
+                  <span>#2E2E2E</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #404040"
+                  data-copiar="#404040"
+                >
+                  <span>#404040</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #595959"
+                  data-copiar="#595959"
+                >
+                  <span>#595959</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor"
+                  type="button"
+                  style="--c: #707070"
+                  data-copiar="#707070"
+                >
+                  <span>#707070</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #9c9c9c"
+                  data-copiar="#9C9C9C"
+                >
+                  <span>#9C9C9C</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #b3b3b3"
+                  data-copiar="#B3B3B3"
+                >
+                  <span>#B3B3B3</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #cccccc"
+                  data-copiar="#CCCCCC"
+                >
+                  <span>#CCCCCC</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #dedede"
+                  data-copiar="#DEDEDE"
+                >
+                  <span>#DEDEDE</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #ededed"
+                  data-copiar="#EDEDED"
+                >
+                  <span>#EDEDED</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #f7f7f7"
+                  data-copiar="#F7F7F7"
+                >
+                  <span>#F7F7F7</span>
+                </button>
+              </li>
+              <li data-reveal="rise">
+                <button
+                  class="cor cor-clara"
+                  type="button"
+                  style="--c: #ffffff"
+                  data-copiar="#FFFFFF"
+                >
+                  <span>#FFFFFF</span>
+                </button>
+              </li>
+            </ul>
+            <p
+              class="sr-only"
+              role="status"
+              aria-live="polite"
+              data-copiar-status
+            ></p>
+          </div>
+
+          <!-- Espaçamentos -->
+          <div class="espacos">
+            <h3 class="subtitulo-guia" data-reveal="up">
+              Espaços — múltiplos de 4
+            </h3>
+            <ul class="espacos-lista" data-reveal-group>
+              <li data-reveal="grow" style="--e: 4">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">004</span>
+              </li>
+              <li data-reveal="grow" style="--e: 8">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">008</span>
+              </li>
+              <li data-reveal="grow" style="--e: 12">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">012</span>
+              </li>
+              <li data-reveal="grow" style="--e: 16">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">016</span>
+              </li>
+              <li data-reveal="grow" style="--e: 20">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">020</span>
+              </li>
+              <li data-reveal="grow" style="--e: 24">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">024</span>
+              </li>
+              <li data-reveal="grow" style="--e: 32">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">032</span>
+              </li>
+              <li data-reveal="grow" style="--e: 36">
+                <span class="espacos-barra"></span
+                ><span class="espacos-valor">036</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- EVOLUÇÃO CRIATIVA -->
+      <section class="secao evolucao" aria-labelledby="evolucao-titulo">
+        <div class="container evolucao-grade">
+          <div class="camadas" aria-hidden="true" data-reveal="layers">
+            <div class="camada camada-1"><span>Wireframe</span></div>
+            <div class="camada camada-2"><span>Protótipo</span></div>
+            <div class="camada camada-3"><span>Código</span></div>
+          </div>
+
+          <div class="evolucao-info">
+            <h2 class="titulo-medio" id="evolucao-titulo" data-reveal="mask">
+              <span class="mascara"
+                ><span class="mascara-interna">Evolução criativa</span></span
+              >
+            </h2>
+            <p class="evolucao-texto" data-reveal="up">
+              Mostro algumas etapas do projeto e o que priorizei no meu
+              portfólio: do wireframe ao protótipo final e à codificação.
+              Projeto desenvolvido com Figma, HTML, CSS e JavaScript. Portfólio
+              em constante evolução!
+            </p>
+
+            <ul class="qualidades" data-reveal-group>
+              <li class="qualidade" data-reveal="up">
+                <svg
+                  class="qualidade-icone"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M3 9h18M8 9v11" />
+                </svg>
+                <div>
+                  <h3 class="qualidade-titulo">Interface do Usuário</h3>
+                  <p>
+                    Em cada projeto, um desafio. Em cada desafio, uma solução
+                    brilhante.
+                  </p>
+                </div>
+              </li>
+              <li class="qualidade" data-reveal="up">
+                <svg
+                  class="qualidade-icone"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <rect x="2" y="5" width="14" height="10" rx="1.5" />
+                  <rect x="17" y="8" width="5" height="11" rx="1" />
+                  <path d="M6 19h6" />
+                </svg>
+                <div>
+                  <h3 class="qualidade-titulo">Versatilidade Web</h3>
+                  <p>
+                    Desde a criação de sites simples e elegantes a sistemas mais
+                    complexos.
+                  </p>
+                </div>
+              </li>
+              <li class="qualidade" data-reveal="up">
+                <svg
+                  class="qualidade-icone"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"
+                  />
+                </svg>
+                <div>
+                  <h3 class="qualidade-titulo">Soluções Inovadoras</h3>
+                  <p>Transformar ideias em projetos funcionais e intuitivos.</p>
+                </div>
+              </li>
+              <li class="qualidade" data-reveal="up">
+                <svg
+                  class="qualidade-icone"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"
+                  />
+                </svg>
+                <div>
+                  <h3 class="qualidade-titulo">Experiência do Usuário</h3>
+                  <p>Atenção aos detalhes e experiência amigável.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section
+        class="secao contato"
+        id="contato"
+        aria-labelledby="contato-titulo"
+      >
+        <div class="contato-fundo" aria-hidden="true" data-reveal="fade"></div>
+        <div class="container">
+          <header class="secao-cabecalho">
+            <p class="sobretitulo" data-reveal="draw">
+              <span class="sobretitulo-indice">04</span>Vamos conectar ideias e
+              oportunidades
+            </p>
+            <h2 class="titulo-secao" id="contato-titulo" data-reveal="mask">
+              <span class="mascara"
+                ><span class="mascara-interna"
+                  >Contato<span class="destaque-ponto">.</span></span
+                ></span
+              >
+            </h2>
+          </header>
+
+          <div class="contato-grade">
+            <div class="contato-cartao" data-reveal="up">
+              <h3 class="contato-cartao-titulo">Gostou dos meus projetos?</h3>
+              <p class="contato-cartao-texto">
+                Entre em contato comigo pelas redes sociais ou deixe uma
+                mensagem.
+              </p>
+
+              <!-- Sem backend: o formulário abre o WhatsApp com a mensagem preenchida (wa.me aceita ?text=). -->
+              <form
+                class="contato-form"
+                action="https://wa.me/5511974753161"
+                method="get"
+                target="_blank"
+                data-contato-form
+              >
+                <label class="contato-rotulo" for="mensagem"
+                  >Sua mensagem</label
+                >
+                <textarea
+                  id="mensagem"
+                  name="text"
+                  rows="4"
+                  required
+                  placeholder="Deixe sua mensagem..."
+                  aria-describedby="mensagem-dica"
+                ></textarea>
+                <p class="contato-dica" id="mensagem-dica">
+                  A mensagem será enviada pelo WhatsApp, em uma nova aba.
+                </p>
+                <button class="botao" type="submit">
+                  <span class="botao-texto">Enviar</span>
+                  <svg
+                    class="botao-seta"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M3 13 13 3M5 3h8v8" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <ul class="contato-redes" data-reveal-group>
+              <li data-reveal="up">
+                <a
+                  href="https://www.linkedin.com/in/henrique-lordelo"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="contato-rede-nome">LinkedIn</span
+                  ><span class="contato-rede-handle">/in/henrique-lordelo</span
+                  ><span class="sr-only"> (abre em nova aba)</span
+                  ><svg
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M3 13 13 3M5 3h8v8" /></svg
+                ></a>
+              </li>
+              <li data-reveal="up">
+                <a
+                  href="https://github.com/HenriqueLordelo"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="contato-rede-nome">GitHub</span
+                  ><span class="contato-rede-handle">@HenriqueLordelo</span
+                  ><span class="sr-only"> (abre em nova aba)</span
+                  ><svg
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M3 13 13 3M5 3h8v8" /></svg
+                ></a>
+              </li>
+              <li data-reveal="up">
+                <a
+                  href="https://www.instagram.com/rickzsz/"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="contato-rede-nome">Instagram</span
+                  ><span class="contato-rede-handle">@rickzsz</span
+                  ><span class="sr-only"> (abre em nova aba)</span
+                  ><svg
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M3 13 13 3M5 3h8v8" /></svg
+                ></a>
+              </li>
+              <li data-reveal="up">
+                <a
+                  href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es."
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="contato-rede-nome">WhatsApp</span
+                  ><span class="contato-rede-handle">Conversar agora</span
+                  ><span class="sr-only"> (abre em nova aba)</span
+                  ><svg
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M3 13 13 3M5 3h8v8" /></svg
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-topo">
+          <a
+            class="logo"
+            href="#topo"
+            aria-label="Henrique Lordêlo — voltar ao início"
+          >
+            <svg
+              class="logo-marca"
+              viewBox="0 0 13 23"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M4.688 19.448H12.048V23H0.208V0.664H4.688V19.448Z"
+                fill="url(#logo-gradiente)"
+              />
+            </svg>
+            <span class="logo-texto">Henrique Lordêlo</span>
+          </a>
+          <nav aria-label="Rodapé">
+            <ul class="footer-menu">
+              <li><a href="#quemsou">Quem Sou</a></li>
+              <li><a href="#desenvolvimentos">Desenvolvimentos</a></li>
+              <li><a href="#portfolio">Portfólio</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+          </nav>
+          <ul class="footer-redes">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/henrique-lordelo"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn (abre em nova aba)"
+                ><img
+                  src="img/rodape/LinkedIn.png"
+                  alt=""
+                  width="18"
+                  height="18"
+                  loading="lazy"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/HenriqueLordelo"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub (abre em nova aba)"
+                ><img
+                  src="img/rodape/GitHub.png"
+                  alt=""
+                  width="18"
+                  height="18"
+                  loading="lazy"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/rickzsz/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram (abre em nova aba)"
+                ><img
+                  src="img/rodape/Instagram.png"
+                  alt=""
+                  width="18"
+                  height="18"
+                  loading="lazy"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/5511974753161?text=Ol%C3%A1%21+Estava+olhando+o+seu+portf%C3%B3lio+e+queria+saber+mais+informa%C3%A7%C3%B5es."
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp (abre em nova aba)"
+                ><img
+                  src="img/rodape/WhatsApp.png"
+                  alt=""
+                  width="18"
+                  height="18"
+                  loading="lazy"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-base">
+          <p>
+            © 2023–<span data-ano>2026</span> Henrique Lordêlo. Todos os
+            direitos reservados.
+          </p>
+          <a class="footer-topo-link" href="#topo"
+            >Voltar ao topo <span aria-hidden="true">↑</span></a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -93,16 +93,33 @@
 
   html.js [data-reveal="layers"].is-in .camada {
     opacity: 1;
-    transition: transform 1.6s var(--ease-out-expo), opacity 0.8s var(--ease-out-quart);
+    transition:
+      transform 1.6s var(--ease-out-expo),
+      opacity 0.8s var(--ease-out-quart);
   }
 
-  html.js [data-reveal="layers"].is-in .camada-1 { --z: -110px; transition-delay: 0.1s; }
-  html.js [data-reveal="layers"].is-in .camada-2 { --z: 0px; transition-delay: 0.25s; }
-  html.js [data-reveal="layers"].is-in .camada-3 { --z: 110px; transition-delay: 0.4s; }
+  html.js [data-reveal="layers"].is-in .camada-1 {
+    --z: -110px;
+    transition-delay: 0.1s;
+  }
+  html.js [data-reveal="layers"].is-in .camada-2 {
+    --z: 0px;
+    transition-delay: 0.25s;
+  }
+  html.js [data-reveal="layers"].is-in .camada-3 {
+    --z: 110px;
+    transition-delay: 0.4s;
+  }
 
   /* no hover, as camadas se afastam um pouco mais */
-  html.js [data-reveal="layers"].is-in:hover .camada-1 { --z: -150px; transition-delay: 0s; }
-  html.js [data-reveal="layers"].is-in:hover .camada-3 { --z: 150px; transition-delay: 0s; }
+  html.js [data-reveal="layers"].is-in:hover .camada-1 {
+    --z: -150px;
+    transition-delay: 0s;
+  }
+  html.js [data-reveal="layers"].is-in:hover .camada-3 {
+    --z: 150px;
+    transition-delay: 0s;
+  }
 }
 
 .evolucao-texto {
@@ -134,7 +151,9 @@
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: border-color 0.4s var(--ease-out-quart), stroke 0.4s var(--ease-out-quart),
+  transition:
+    border-color 0.4s var(--ease-out-quart),
+    stroke 0.4s var(--ease-out-quart),
     transform 0.5s var(--ease-out-expo);
 }
 

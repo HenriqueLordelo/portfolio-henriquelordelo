@@ -96,7 +96,9 @@
   font-size: clamp(1.125rem, 0.9rem + 1vw, 1.75rem);
   font-weight: var(--peso);
   color: var(--texto);
-  transition: transform 0.45s var(--ease-out-expo), color 0.3s var(--ease-out-quart);
+  transition:
+    transform 0.45s var(--ease-out-expo),
+    color 0.3s var(--ease-out-quart);
 }
 
 .especime-roboto .especime-amostra {

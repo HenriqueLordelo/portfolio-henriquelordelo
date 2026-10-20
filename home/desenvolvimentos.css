@@ -41,7 +41,9 @@
   overflow: hidden;
   border-radius: var(--raio);
   background: var(--superficie);
-  box-shadow: 0 0 0 1px var(--linha), 0 40px 80px -40px rgb(0 0 0 / 0.8);
+  box-shadow:
+    0 0 0 1px var(--linha),
+    0 40px 80px -40px rgb(0 0 0 / 0.8);
 }
 
 .projeto-midia img,
@@ -77,7 +79,8 @@
   font: 500 var(--fs-pequeno) / 1 var(--fonte-titulo);
   white-space: nowrap;
   pointer-events: none;
-  transform: translate3d(var(--cx, 50%), var(--cy, 50%), 0) translate(-50%, -50%) scale(0);
+  transform: translate3d(var(--cx, 50%), var(--cy, 50%), 0)
+    translate(-50%, -50%) scale(0);
   transition: transform 0.45s var(--ease-out-expo);
 }
 
@@ -91,7 +94,8 @@
   }
 
   .projeto-midia:hover .projeto-cursor {
-    transform: translate3d(var(--cx, 50%), var(--cy, 50%), 0) translate(-50%, -50%) scale(1);
+    transform: translate3d(var(--cx, 50%), var(--cy, 50%), 0)
+      translate(-50%, -50%) scale(1);
   }
 }
 
@@ -103,7 +107,9 @@
   letter-spacing: -0.05em;
   color: transparent;
   -webkit-text-stroke: 1px var(--cor-c8);
-  transition: -webkit-text-stroke-color 0.5s var(--ease-out-quart), color 0.5s var(--ease-out-quart);
+  transition:
+    -webkit-text-stroke-color 0.5s var(--ease-out-quart),
+    color 0.5s var(--ease-out-quart);
 }
 
 .projeto:hover .projeto-numero,

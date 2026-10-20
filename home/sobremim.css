@@ -36,7 +36,9 @@
   border: 1px solid var(--linha);
   border-radius: var(--raio);
   background: var(--superficie);
-  transition: border-color 0.4s var(--ease-out-quart), transform 0.5s var(--ease-out-expo);
+  transition:
+    border-color 0.4s var(--ease-out-quart),
+    transform 0.5s var(--ease-out-expo);
 }
 
 /* marcador da linha do tempo */
@@ -101,7 +103,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
@@ -141,10 +144,22 @@
   transform: translate3d(var(--px, 0px), var(--py, 0px), 0);
 }
 
-.perfil-traco:nth-child(1) { top: 12%; left: 8%; }
-.perfil-traco:nth-child(2) { top: 30%; right: 8%; }
-.perfil-traco:nth-child(3) { bottom: 26%; left: 12%; }
-.perfil-traco:nth-child(4) { bottom: 10%; right: 12%; }
+.perfil-traco:nth-child(1) {
+  top: 12%;
+  left: 8%;
+}
+.perfil-traco:nth-child(2) {
+  top: 30%;
+  right: 8%;
+}
+.perfil-traco:nth-child(3) {
+  bottom: 26%;
+  left: 12%;
+}
+.perfil-traco:nth-child(4) {
+  bottom: 10%;
+  right: 12%;
+}
 
 /* COMPETÊNCIAS — rótulos sempre visíveis (antes eram tooltips só no hover) */
 .competencias-titulo {
@@ -170,7 +185,9 @@
   border-radius: 10px;
   font: 400 0.9375rem / 1.2 var(--fonte-titulo);
   color: var(--texto);
-  transition: border-color 0.35s var(--ease-out-quart), background-color 0.35s var(--ease-out-quart);
+  transition:
+    border-color 0.35s var(--ease-out-quart),
+    background-color 0.35s var(--ease-out-quart);
 }
 
 .competencias-lista li:hover {

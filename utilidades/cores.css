@@ -33,6 +33,8 @@
   --texto-suave: var(--cor-c6); /* 7.1:1 sobre --fundo */
   --texto-apagado: var(--cor-c7); /* apenas textos grandes ou decorativos */
   --destaque: #db0000; /* acento visual; não usar em texto pequeno */
-  --destaque-texto: var(--cor-l1); /* laranja: 7.4:1 sobre --fundo, seguro para texto */
+  --destaque-texto: var(
+    --cor-l1
+  ); /* laranja: 7.4:1 sobre --fundo, seguro para texto */
   --foco: var(--cor-l1);
 }
